@@ -1,0 +1,76 @@
+---
+const navItems = ['Treatments', 'Locations', 'Blogs']
+---
+
+<header id="main-header" class="sticky top-0 w-full transition-all duration-300 z-50 py-4 px-6 flex justify-between items-center bg-transparent">
+  <a href="/" class="text-[24px] font-bold uppercase tracking-tighter text-white">MYO</a>
+  <nav class="hidden md:flex items-center gap-[32px]">
+    {navItems.map((item) => (
+      <a key={item} href={`/${item.toLowerCase()}`} class="text-[14px] font-medium text-white hover:opacity-70 transition-opacity">{item}</a>
+    ))}
+  </nav>
+  <div class="flex items-center gap-4">
+    <a href="/book" class="hidden sm:inline-flex bg-white text-black hover:bg-white/90 transition-colors rounded-full px-6 h-[46px] items-center text-[14px] font-bold uppercase tracking-wide">BOOK NOW</a>
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu" class="fixed inset-0 bg-black z-50 hidden flex-col items-center justify-center gap-8">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white p-2">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  {navItems.map((item) => (
+    <a key={item} href={`/${item.toLowerCase()}`} class="text-white text-3xl font-bold uppercase tracking-wider hover:opacity-70 transition-opacity">{item}</a>
+  ))}
+  <a href="/book" class="bg-white text-black rounded-full px-8 py-4 text-lg font-bold uppercase tracking-wide mt-4">BOOK NOW</a>
+</div>
+
+<script>
+  const header = document.getElementById('main-header');
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileClose = document.getElementById('mobile-menu-close');
+
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 20) {
+      header.classList.remove('bg-transparent');
+      header.classList.add('bg-white', 'border-b', 'border-black/10');
+      header.querySelectorAll('a, button').forEach(el => {
+        if (!el.classList.contains('bg-white') && !el.classList.contains('bg-black')) {
+          el.classList.remove('text-white');
+          el.classList.add('text-black');
+        }
+      });
+    } else {
+      header.classList.add('bg-transparent');
+      header.classList.remove('bg-white', 'border-b', 'border-black/10');
+      header.querySelectorAll('a, button').forEach(el => {
+        if (!el.classList.contains('bg-white') && !el.classList.contains('bg-black')) {
+          el.classList.add('text-white');
+          el.classList.remove('text-black');
+        }
+      });
+    }
+    lastScroll = y;
+  });
+
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  }
+  if (mobileClose && mobileMenu) {
+    mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  }
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) mobileMenu.classList.add('hidden');
+    });
+  }
+</script>

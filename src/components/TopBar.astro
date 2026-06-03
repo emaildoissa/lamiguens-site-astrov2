@@ -1,0 +1,64 @@
+---
+const locations = [
+  { country: "US", city: "Los Angeles", address: "Myo West Hollywood, 90069" },
+  { country: "CA", city: "Toronto", address: "Myo PATH Brookfield Place" },
+]
+
+const allLocations = [
+  "US — Myo West Hollywood, 90069",
+  "US — Myo Brentwood, 90049",
+  "US — Myo Studio City, 91604",
+  "US — Myo Manhattan Beach, 90266",
+  "US — Myo Flatiron, 10010",
+  "CA — Myo PATH Brookfield Place",
+  "CA — Myo Mississauga",
+  "CA — Myo Liberty Village",
+  "CA — Myo 17th Avenue",
+  "CA — Myo Kensington",
+  "CA — Myo Kitsilano",
+  "CA — Myo Fraser",
+  "CA — Myo Main Street",
+  "CA — Myo Chinatown",
+]
+---
+
+<div class="hidden md:flex w-full bg-black text-white px-6 py-2 justify-between items-center text-[12px] uppercase tracking-[0.05em] z-[60]">
+  <div>
+    <a href="#" class="hover:opacity-70 transition-opacity">Learn More</a>
+  </div>
+  <div class="relative flex items-center gap-6">
+    <div class="location-selector flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity">
+      <span>US</span>
+      <span class="text-white/40">|</span>
+      <span>Myo West Hollywood, 90069</span>
+      <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+        <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="location-dropdown hidden absolute top-full right-0 mt-2 bg-white text-black rounded-xl shadow-2xl p-4 min-w-[280px] z-50">
+      <div class="text-[11px] font-bold uppercase tracking-wider text-black/50 mb-3">Select a Location</div>
+      <div class="flex flex-col gap-1">
+        {allLocations.map((loc) => (
+          <a href="#" class="text-[13px] py-2 px-3 rounded-lg hover:bg-black/5 transition-colors">{loc}</a>
+        ))}
+      </div>
+    </div>
+    <a href="#" class="hover:opacity-70 transition-opacity">MY ACCOUNT</a>
+  </div>
+</div>
+
+<script>
+  const selector = document.querySelector('.location-selector');
+  const dropdown = document.querySelector('.location-dropdown');
+  if (selector && dropdown) {
+    selector.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('hidden');
+    });
+    document.addEventListener('click', () => {
+      if (!dropdown.classList.contains('hidden')) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  }
+</script>

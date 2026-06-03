@@ -1,0 +1,26 @@
+---
+const heroTitle = "Modern physical therapy to futureproof your body.®"
+---
+
+<section class="relative w-full h-[calc(100vh-80px)] min-h-[600px] flex flex-col justify-center items-center overflow-hidden text-white">
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute top-0 left-0 w-full h-full bg-black/40 z-10" />
+  <div class="relative z-20 container mx-auto px-6 flex flex-col items-center text-center">
+    <h1 class="text-[40px] md:text-[64px] font-bold leading-[1.1] max-w-[800px] mb-8">{heroTitle}</h1>
+    <div class="w-full max-w-[400px] bg-white rounded-full p-2 flex items-center gap-2 shadow-lg mb-6">
+      <div class="pl-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black/40">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+      </div>
+      <input type="text" placeholder="Search your city or zip code" class="flex-1 bg-transparent border-none outline-none text-black py-2 text-[14px]" />
+      <button class="bg-black text-white px-6 py-2 rounded-full text-[14px] font-bold hover:bg-black/80 transition-colors">GO</button>
+    </div>
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-[12px] uppercase tracking-widest opacity-60">powered by Bonsai</span>
+      <a href="#" class="mt-4 text-[14px] font-bold uppercase border-b-2 border-white pb-1 hover:opacity-70 transition-opacity">FIND A LOCATION</a>
+    </div>
+  </div>
+</section>

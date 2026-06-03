@@ -1,0 +1,44 @@
+---
+const footerLinks = [
+  { title: 'ABOUT', links: [{ label: 'Locations', href: '/locations' }, { label: 'Careers', href: '#' }, { label: 'Company', href: '#' }] },
+  { title: 'EXPLORE', links: [{ label: 'Treatments', href: '/treatments' }, { label: 'Learn', href: '#' }, { label: 'Store', href: '#' }, { label: 'Memberships', href: '#' }, { label: 'Gift Cards', href: '#' }] },
+  { title: 'HELP', links: [{ label: 'FAQ', href: '#' }, { label: 'Contact us', href: '#' }] },
+]
+---
+
+<footer class="bg-black text-white pt-20 pb-10 px-6">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+      {footerLinks.map((column) => (
+        <div>
+          <h3 class="text-[12px] uppercase tracking-widest mb-6 opacity-50 font-bold">{column.title}</h3>
+          <ul class="space-y-4">
+            {column.links.map((link) => (
+              <li><a href={link.href} class="text-[16px] hover:opacity-50 transition-opacity block">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <div>
+        <h3 class="text-[12px] uppercase tracking-widest mb-6 opacity-50 font-bold">KEEP IN TOUCH</h3>
+        <p class="text-[16px] mb-6">Subscribe to our newsletter for updates.</p>
+        <form class="flex items-center border-b border-white pb-2 mt-6">
+          <input type="email" placeholder="Email Address" class="bg-transparent border-none outline-none text-white flex-1 placeholder:text-white/30 text-[16px]" />
+          <button type="submit" class="text-white hover:opacity-50 transition-opacity text-[20px]">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/20 pt-10 gap-8">
+      <a href="/" class="text-[24px] font-bold uppercase tracking-tighter">MYO</a>
+      <div class="flex items-center gap-8 text-[12px] font-bold tracking-widest">
+        <a href="#" class="hover:opacity-50 transition-opacity">INSTAGRAM</a>
+        <a href="#" class="hover:opacity-50 transition-opacity">LINKEDIN</a>
+        <a href="#" class="hover:opacity-50 transition-opacity">FACEBOOK</a>
+      </div>
+      <div class="flex gap-8 text-[14px] opacity-50">
+        <a href="#" class="hover:opacity-100 transition-opacity">Terms</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
