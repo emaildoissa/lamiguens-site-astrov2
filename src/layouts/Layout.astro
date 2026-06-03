@@ -1,14 +1,14 @@
 ---
-import TopBar from '@/components/TopBar.astro'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
+import FloatingWhatsApp from '@/components/FloatingWhatsApp.astro'
 
 export interface Props {
   title?: string
   description?: string
 }
 
-const { title = 'Myodetox | Modern physical therapy', description = 'Pixel-perfect website clone' } = Astro.props
+const { title = 'La Miguens | Fisioterapia e Pilates em Porto Alegre', description = 'Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.' } = Astro.props
 ---
 
 <!doctype html>
@@ -23,15 +23,15 @@ const { title = 'Myodetox | Modern physical therapy', description = 'Pixel-perfe
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body class="font-sans min-h-screen flex flex-col">
-    <TopBar />
     <Header />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+    <FloatingWhatsApp />
   </body>
 </html>

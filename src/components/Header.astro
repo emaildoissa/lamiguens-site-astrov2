@@ -1,76 +1,145 @@
 ---
-const navItems = ['Treatments', 'Locations', 'Blogs']
+const services = [
+  { label: 'Pilates', href: '/pilates' },
+  { label: 'Fisioterapia', href: '/fisioterapia' },
+  { label: 'Treinamento Funcional', href: '/treinamento-funcional' },
+  { label: 'Fisioterapia Esportiva', href: '/fisio-esportiva' },
+  { label: 'Tratamento de Dor Crônica', href: '/tratamento-dor-cronica' },
+  { label: 'Fisio Recovery', href: '/fisio-recovery' },
+  { label: 'Neuromodulação', href: '/reabilitacao' },
+  { label: 'Outras Especialidades', href: '/outras-especialidades' },
+]
 ---
 
-<header id="main-header" class="sticky top-0 w-full transition-all duration-300 z-50 py-4 px-6 flex justify-between items-center bg-transparent">
-  <a href="/" class="text-[24px] font-bold uppercase tracking-tighter text-white">MYO</a>
-  <nav class="hidden md:flex items-center gap-[32px]">
-    {navItems.map((item) => (
-      <a key={item} href={`/${item.toLowerCase()}`} class="text-[14px] font-medium text-white hover:opacity-70 transition-opacity">{item}</a>
-    ))}
-  </nav>
-  <div class="flex items-center gap-4">
-    <a href="/book" class="hidden sm:inline-flex bg-white text-black hover:bg-white/90 transition-colors rounded-full px-6 h-[46px] items-center text-[14px] font-bold uppercase tracking-wide">BOOK NOW</a>
-    <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
+<header id="lm-header" class="sticky top-0 z-50 w-full transition-all duration-300 py-4 bg-transparent">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <div data-purpose="logo-container">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="La Miguens Logo" class="h-20 md:h-28 w-auto transition-all duration-300" />
+        </a>
+      </div>
+
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-white hover:text-lm-pink rounded-md p-2" aria-label="Abrir menu">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-bars" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <nav data-purpose="main-navigation" class="hidden md:block">
+        <ul class="flex flex-wrap justify-center gap-6 text-sm font-medium uppercase tracking-wide items-center">
+          <li><a href="/" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Home</a></li>
+          <li><a href="/sobre" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Sobre</a></li>
+          <li class="relative group py-4">
+            <button id="desktop-services-btn" class="lm-nav-link text-white hover:text-lm-pink transition-colors flex items-center gap-1 cursor-pointer uppercase font-medium" aria-haspopup="true" aria-expanded="false">
+              Serviços
+              <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="desktop-services-dropdown" class="absolute left-0 top-full hidden group-hover:block group-focus-within:block z-50" role="region" aria-label="Serviços">
+              <ul class="w-56 bg-white shadow-lg border border-gray-100 py-2">
+                {services.map((s) => (
+                  <li><a href={s.href} class="block px-4 py-2 text-sm text-gray-600 hover:bg-lm-beige hover:text-lm-pink">{s.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          </li>
+          <li><a href="/#pacotes" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Planos de Tratamento</a></li>
+          <li><a href="/blog" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Blog</a></li>
+          <li><a href="/casos-de-sucesso" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Casos</a></li>
+          <li><a href="/#localizacao" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20">
+      <ul class="flex flex-col gap-4 text-sm font-medium uppercase tracking-wide pt-4 px-2">
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/">Home</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/sobre">Sobre</a></li>
+        <li>
+          <button id="mobile-services-btn" class="flex justify-between w-full text-left text-white hover:text-lm-pink transition-colors py-2 uppercase font-medium items-center" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">
+            Serviços
+            <svg id="services-chevron" class="w-4 h-4 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <ul id="mobile-services-submenu" class="hidden mt-2 ml-4 flex flex-col gap-3 border-l-2 border-lm-pink/30 pl-4 py-2">
+            {services.map((s) => (
+              <li><a href={s.href} class="mobile-link block text-gray-300 hover:text-lm-pink">{s.label}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#pacotes">Planos de Tratamento</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/blog">Blog</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/casos-de-sucesso">Casos</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#localizacao">Contato</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 bg-black z-50 hidden flex-col items-center justify-center gap-8">
-  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white p-2">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-    </svg>
-  </button>
-  {navItems.map((item) => (
-    <a key={item} href={`/${item.toLowerCase()}`} class="text-white text-3xl font-bold uppercase tracking-wider hover:opacity-70 transition-opacity">{item}</a>
-  ))}
-  <a href="/book" class="bg-white text-black rounded-full px-8 py-4 text-lg font-bold uppercase tracking-wide mt-4">BOOK NOW</a>
-</div>
+<style>
+  @supports (animation-timeline: scroll()) {
+    header { animation: lm-header-morph linear forwards; animation-timeline: scroll(root); animation-range: 0 150px; }
+    [data-purpose="logo-container"] img { animation: lm-logo-shrink linear forwards; animation-timeline: scroll(root); animation-range: 0 150px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    header, [data-purpose="logo-container"] img { animation: none !important; }
+  }
+</style>
 
 <script>
-  const header = document.getElementById('main-header');
+  const header = document.getElementById('lm-header');
+  const navLinks = document.querySelectorAll('.lm-nav-link');
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  const mobileClose = document.getElementById('mobile-menu-close');
+  const iconBars = document.getElementById('menu-icon-bars');
+  const iconClose = document.getElementById('menu-icon-close');
+  const servicesBtn = document.getElementById('mobile-services-btn');
+  const servicesSubmenu = document.getElementById('mobile-services-submenu');
+  const servicesChevron = document.getElementById('services-chevron');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
+  function handleScroll() {
     const y = window.scrollY;
     if (y > 20) {
-      header.classList.remove('bg-transparent');
-      header.classList.add('bg-white', 'border-b', 'border-black/10');
-      header.querySelectorAll('a, button').forEach(el => {
-        if (!el.classList.contains('bg-white') && !el.classList.contains('bg-black')) {
-          el.classList.remove('text-white');
-          el.classList.add('text-black');
-        }
-      });
+      header.classList.remove('bg-transparent', 'py-4');
+      header.classList.add('bg-white/85', 'backdrop-blur-md', 'py-2', 'shadow-sm');
+      navLinks.forEach(el => { el.classList.remove('text-white'); el.classList.add('text-gray-700'); });
     } else {
-      header.classList.add('bg-transparent');
-      header.classList.remove('bg-white', 'border-b', 'border-black/10');
-      header.querySelectorAll('a, button').forEach(el => {
-        if (!el.classList.contains('bg-white') && !el.classList.contains('bg-black')) {
-          el.classList.add('text-white');
-          el.classList.remove('text-black');
-        }
-      });
+      header.classList.add('bg-transparent', 'py-4');
+      header.classList.remove('bg-white/85', 'backdrop-blur-md', 'py-2', 'shadow-sm');
+      navLinks.forEach(el => { el.classList.remove('text-gray-700'); el.classList.add('text-white'); });
     }
-    lastScroll = y;
-  });
+  }
 
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  function toggleMobileMenu(open) {
+    const isOpen = open ?? mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', !isOpen);
+    iconBars?.classList.toggle('hidden', isOpen);
+    iconClose?.classList.toggle('hidden', !isOpen);
+    mobileBtn?.setAttribute('aria-expanded', String(!!isOpen));
+    mobileBtn?.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
-  if (mobileClose && mobileMenu) {
-    mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+
+  function toggleMobileSubmenu(open) {
+    const isOpen = open ?? servicesSubmenu?.classList.contains('hidden');
+    servicesSubmenu?.classList.toggle('hidden', !isOpen);
+    servicesSubmenu?.classList.toggle('flex', !!isOpen);
+    servicesChevron?.classList.toggle('rotate-180', !!isOpen);
+    servicesBtn?.setAttribute('aria-expanded', String(!!isOpen));
   }
-  if (mobileMenu) {
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) mobileMenu.classList.add('hidden');
-    });
-  }
+
+  mobileBtn?.addEventListener('click', () => toggleMobileMenu());
+  servicesBtn?.addEventListener('click', () => toggleMobileSubmenu());
+  mobileLinks.forEach((link) => link.addEventListener('click', () => toggleMobileMenu(false)));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) { toggleMobileMenu(false); mobileBtn?.focus(); }
+      if (servicesSubmenu && !servicesSubmenu.classList.contains('hidden')) { toggleMobileSubmenu(false); servicesBtn?.focus(); }
+    }
+  });
 </script>
