@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GoldDivider from '@/components/GoldDivider.astro'
+const neighborhoods = [
+  { name: 'Tristeza', href: '/bairros/tristeza' }, { name: 'Cristal', href: '/bairros/cristal' },
+  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' }, { name: 'Cavalhada', href: '/bairros/cavalhada' },
+  { name: 'Ipanema', href: '/bairros/ipanema' },
+]
+const faqs = [
+  { q: 'A acupuntura dói?', a: 'É minimamente invasiva. A maioria dos pacientes sente apenas um leve formigamento ou pressão no local da agulha.' },
+  { q: 'Quantas sessões são necessárias?', a: 'Geralmente de 6 a 12 sessões, dependendo da condição tratada. Os efeitos costumam ser cumulativos.' },
+  { q: 'Acupuntura trata quais condições?', a: 'Dores crônicas, enxaqueca, ansiedade, estresse, problemas digestivos, insônia, dores articulares e muito mais.' },
+  { q: 'Preciso de encaminhamento médico?', a: 'Não. Você pode agendar diretamente conosco para uma avaliação inicial.' },
+]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre acupuntura."
+---
+<Layout title="Acupuntura na Zona Sul de Porto Alegre" description="Acupuntura na Zona Sul de Porto Alegre. Tratamento natural para dores, estresse e ansiedade com profissionais qualificados.">
+  <section class="py-20 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h1 class="text-4xl md:text-5xl font-bold mb-6">Acupuntura na Zona Sul de Porto Alegre</h1><p class="text-lg text-gray-600 mb-8 max-w-2xl">Tratamento milenar chinês para alívio de dores, estresse e promoção do bem-estar.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Indicações da acupuntura</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">{['Dores crônicas (costas, joelho, ombro)', 'Enxaqueca e cefaleia tensional', 'Ansiedade e estresse', 'Insônia e distúrbios do sono', 'Problemas digestivos', 'Alergias e sinusite', 'Dores menstruais', 'Fortalecimento do sistema imunológico'].map(item => (<div class="flex items-center gap-3"><svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-base">{item}</span></div>))}</div></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Como funciona</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8">{[{ step: '1', title: 'Avaliação energética', desc: 'Diagnóstico baseado na medicina tradicional chinesa para identificar desequilíbrios.' },{ step: '2', title: 'Aplicação das agulhas', desc: 'Inserção de agulhas finíssimas em pontos estratégicos para restaurar o fluxo de energia.' },{ step: '3', title: 'Acompanhamento', desc: 'Sessões regulares com ajustes conforme sua evolução e resposta ao tratamento.' }].map(item => (<div class="text-center p-6"><span class="text-4xl font-bold text-lm-gold block mb-4">{item.step}</span><h3 class="text-lg font-bold mb-2">{item.title}</h3><p class="text-gray-600 text-sm">{item.desc}</p></div>))}</div></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Atendemos neste serviço em:</h2><div class="flex flex-wrap gap-4">{neighborhoods.map(n => (<a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>))}</div></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2><div class="space-y-4">{faqs.map(faq => (<details class="group border border-gray-200 rounded-lg"><summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div></details>))}</div></div></section>
+  <section class="py-16 px-6 text-center bg-black text-white"><h2 class="text-2xl md:text-3xl font-bold mb-6">Experimente a acupuntura</h2><p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende sua primeira sessão e descubra os benefícios da acupuntura para sua saúde.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a></section>
+</Layout>

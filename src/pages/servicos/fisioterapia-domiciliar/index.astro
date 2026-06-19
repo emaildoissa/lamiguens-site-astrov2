@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GoldDivider from '@/components/GoldDivider.astro'
+const neighborhoods = [
+  { name: 'Tristeza', href: '/bairros/tristeza' },
+  { name: 'Cristal', href: '/bairros/cristal' },
+  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' },
+  { name: 'Cavalhada', href: '/bairros/cavalhada' },
+]
+const faqs = [
+  { q: 'Quem pode se beneficiar da fisioterapia domiciliar?', a: 'Pacientes com mobilidade reduzida, idosos, pós-operatórios restritos, acamados e pessoas sem transporte para a clínica.' },
+  { q: 'Vocês atendem em quais bairros?', a: 'Atendemos em toda a Zona Sul de Porto Alegre: Tristeza, Cristal, Vila Assunção, Cavalhada, Ipanema, Guarujá e região.' },
+  { q: 'Precisa de equipamento especial?', a: 'Levamos todo o material necessário para a sessão. Você só precisa de um espaço mínimo para o atendimento.' },
+  { q: 'O atendimento domiciliar tem o mesmo valor?', a: 'O valor pode variar devido ao deslocamento. Consulte nossos preços pelo WhatsApp.' },
+]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia domiciliar."
+---
+
+<Layout title="Fisioterapia Domiciliar na Zona Sul de Porto Alegre" description="Fisioterapia no conforto da sua casa na Zona Sul de Porto Alegre. Atendimento personalizado para quem tem dificuldade de locomoção.">
+  <section class="py-20 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia Domiciliar na Zona Sul de Porto Alegre</h1>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl">Atendimento fisioterapêutico no conforto da sua casa, com a mesma qualidade da clínica.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Para quem é indicado</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {['Idosos com mobilidade reduzida', 'Pós-operatório imediato', 'Acamados e cadeirantes', 'Pacientes sem transporte', 'Doenças neurológicas', 'Fraturas em consolidação', 'Cuidados paliativos', 'Limitação física temporária'].map(item => (
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span class="text-base">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Vantagens do atendimento domiciliar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: 'Conforto', desc: 'Atendimento no seu lar, sem estresse com deslocamento e em horário flexível.' },
+          { title: 'Individualizado', desc: 'Sessões exclusivas com foco total nas suas necessidades específicas.' },
+          { title: 'Familiar presente', desc: 'Seus familiares podem acompanhar e aprender a auxiliar nos exercícios.' },
+        ].map(item => (
+          <div class="text-center p-6 border border-gray-200 rounded-lg">
+            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Áreas de atendimento:</h2>
+      <div class="flex flex-wrap gap-4">
+        {neighborhoods.map(n => (
+          <a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2>
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <details class="group border border-gray-200 rounded-lg">
+            <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+            <div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 text-center bg-black text-white">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Solicite uma visita domiciliar</h2>
+    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Entre em contato e agende uma avaliação no conforto da sua casa.</p>
+    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  </section>
+</Layout>

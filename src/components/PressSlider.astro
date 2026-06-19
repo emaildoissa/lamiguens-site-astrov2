@@ -1,28 +1,31 @@
 ---
-const pressData = [
-  { name: "VOGUE", quote: "...there's one investment that yields lucrative, feel-good dividends: 'prehab.' Work with a Myodetox physical therapist before you're in pain, and you'll be able to move better—and potentially save thousands in medical bills down the road." },
-  { name: "GQ", quote: "Myodetox is changing the game for physical therapy." },
-  { name: "MEN'S HEALTH", quote: "The future of body maintenance is here." },
-  { name: "FORBES", quote: "A revolutionary approach to rehab." },
-  { name: "LONNY", quote: "The best investment you can make is in your own body." },
+const testimonials = [
+  { name: "MARIA S.", text: "Excelente atendimento! Cheguei com muitas dores nas costas e depois de algumas sessões já senti uma melhora incrível. Profissionais muito capacitados." },
+  { name: "CARLOS M.", text: "Fiz tratamento de RPG e o resultado superou minhas expectativas. Ambiente acolhedor e equipe muito atenciosa. Recomendo de olhos fechados." },
+  { name: "ANA P.", text: "A fisioterapia domiciliar foi essencial para minha recuperação pós-cirúrgica. Profissionais pontuais e extremamente competentes." },
+  { name: "PEDRO L.", text: "Finalmente encontrei uma clínica que entende de fisioterapia esportiva. Voltei a correr sem dor depois do tratamento. Nota 10!" },
+  { name: "JULIANA R.", text: "Ambiente agradável, profissionais atenciosos e tratamento personalizado. A diferença está no cuidado com cada paciente." },
 ]
 ---
 
 <section class="py-20 px-6 bg-[#F5F5F5] text-black flex flex-col items-center text-center">
-  <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-12">HEAR IT FROM THE PRESS</h3>
+  <h3 class="text-sm font-bold uppercase tracking-[0.2em] mb-12">O QUE NOSSOS PACIENTES DIZEM</h3>
   <div class="max-w-[800px] min-h-[220px] md:min-h-[160px] flex items-center justify-center px-4">
-    <h2 id="press-quote" class="text-[22px] md:text-[32px] font-medium leading-snug italic">"{pressData[0].quote}"</h2>
+    <h2 id="press-quote" class="text-[22px] md:text-[32px] font-medium leading-snug italic">"{testimonials[0].text}"</h2>
   </div>
-  <div class="mt-16 flex items-center gap-12 lg:gap-24">
-    <button id="press-prev" class="hidden md:flex w-12 h-12 rounded-full border border-black items-center justify-center hover:bg-black hover:text-white transition-all duration-300 group active:scale-95" aria-label="Previous quote">
+  <div class="flex items-center gap-3 mt-4 mb-8">
+    <span id="press-author" class="text-sm font-bold tracking-widest">{testimonials[0].name}</span>
+  </div>
+  <div class="mt-10 flex items-center gap-12 lg:gap-24">
+    <button id="press-prev" class="hidden md:flex w-12 h-12 rounded-full border border-black items-center justify-center hover:bg-black hover:text-white transition-all duration-300 group active:scale-95" aria-label="Depoimento anterior">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-0.5 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
     </button>
     <div id="press-logos" class="flex flex-wrap justify-center gap-6 md:gap-12 items-center">
-      {pressData.map((press, idx) => (
-        <button key={idx} data-index={idx} class="press-logo text-base md:text-xl font-black tracking-tight transition-all duration-300 cursor-pointer py-2 px-1 border-b-2 {idx === 0 ? 'opacity-100 border-black scale-105' : 'opacity-30 border-transparent hover:opacity-50'}">{press.name}</button>
+      {testimonials.map((item, idx) => (
+        <button key={idx} data-index={idx} class="press-logo text-base md:text-lg font-black tracking-tight transition-all duration-300 cursor-pointer py-2 px-1 border-b-2 {idx === 0 ? 'opacity-100 border-black scale-105' : 'opacity-30 border-transparent hover:opacity-50'}">{item.name}</button>
       ))}
     </div>
-    <button id="press-next" class="hidden md:flex w-12 h-12 rounded-full border border-black items-center justify-center hover:bg-black hover:text-white transition-all duration-300 group active:scale-95" aria-label="Next quote">
+    <button id="press-next" class="hidden md:flex w-12 h-12 rounded-full border border-black items-center justify-center hover:bg-black hover:text-white transition-all duration-300 group active:scale-95" aria-label="Próximo depoimento">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
     </button>
   </div>
@@ -37,21 +40,23 @@ const pressData = [
 </section>
 
 <script>
-  const pressData = [
-    { name: "VOGUE", quote: "...there's one investment that yields lucrative, feel-good dividends: 'prehab.' Work with a Myodetox physical therapist before you're in pain, and you'll be able to move better—and potentially save thousands in medical bills down the road." },
-    { name: "GQ", quote: "Myodetox is changing the game for physical therapy." },
-    { name: "MEN'S HEALTH", quote: "The future of body maintenance is here." },
-    { name: "FORBES", quote: "A revolutionary approach to rehab." },
-    { name: "LONNY", quote: "The best investment you can make is in your own body." },
+  const data = [
+    { name: "MARIA S.", text: "Excelente atendimento! Cheguei com muitas dores nas costas e depois de algumas sessões já senti uma melhora incrível. Profissionais muito capacitados." },
+    { name: "CARLOS M.", text: "Fiz tratamento de RPG e o resultado superou minhas expectativas. Ambiente acolhedor e equipe muito atenciosa. Recomendo de olhos fechados." },
+    { name: "ANA P.", text: "A fisioterapia domiciliar foi essencial para minha recuperação pós-cirúrgica. Profissionais pontuais e extremamente competentes." },
+    { name: "PEDRO L.", text: "Finalmente encontrei uma clínica que entende de fisioterapia esportiva. Voltei a correr sem dor depois do tratamento. Nota 10!" },
+    { name: "JULIANA R.", text: "Ambiente agradável, profissionais atenciosos e tratamento personalizado. A diferença está no cuidado com cada paciente." },
   ];
 
   let currentIndex = 0;
   const quoteEl = document.getElementById('press-quote');
+  const authorEl = document.getElementById('press-author');
   const logos = document.querySelectorAll('.press-logo');
 
   function goToSlide(index) {
     currentIndex = index;
-    if (quoteEl) quoteEl.textContent = `"${pressData[index].quote}"`;
+    if (quoteEl) quoteEl.textContent = `"${data[index].text}"`;
+    if (authorEl) authorEl.textContent = data[index].name;
     logos.forEach((el, i) => {
       if (i === index) {
         el.classList.add('opacity-100', 'border-black', 'scale-105');
@@ -63,8 +68,8 @@ const pressData = [
     });
   }
 
-  function next() { goToSlide((currentIndex + 1) % pressData.length); }
-  function prev() { goToSlide((currentIndex - 1 + pressData.length) % pressData.length); }
+  function next() { goToSlide((currentIndex + 1) % data.length); }
+  function prev() { goToSlide((currentIndex - 1 + data.length) % data.length); }
 
   logos.forEach(el => el.addEventListener('click', () => goToSlide(parseInt(el.dataset.index))));
   document.getElementById('press-prev')?.addEventListener('click', prev);

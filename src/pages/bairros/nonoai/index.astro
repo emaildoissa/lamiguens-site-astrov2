@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GoldDivider from '@/components/GoldDivider.astro'
+const services = [{ name: 'Fisioterapia Ortopédica', href: '/servicos/fisioterapia-ortopedica' },{ name: 'Fisioterapia Pós-Operatória', href: '/servicos/fisioterapia-pos-operatoria' },{ name: 'Fisioterapia Domiciliar', href: '/servicos/fisioterapia-domiciliar' }]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia no Nonoai."
+---
+<Layout title="Fisioterapia no Nonoai em Porto Alegre" description="Fisioterapia no Nonoai, Zona Sul de Porto Alegre. Atendimento especializado no bairro Nonoai. Agende sua avaliação.">
+  <section class="py-20 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia no Nonoai em Porto Alegre</h1><p class="text-lg text-gray-600 mb-8 max-w-2xl">Atendimento de fisioterapia no bairro Nonoai, Zona Sul de Porto Alegre.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Serviços disponíveis no Nonoai</h2><div class="flex flex-wrap gap-4">{services.map(s => (<a href={s.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{s.name}</a>))}</div><p class="text-gray-600 mt-8 text-sm">O Nonoai é um bairro residencial da Zona Sul, com fácil acesso pela Av. Cel. Aparício Borges e próximo ao Shopping Zona Sul.</p></div></section>
+  <section class="py-16 px-6 text-center bg-black text-white"><h2 class="text-2xl md:text-3xl font-bold mb-6">Agende sua avaliação no Nonoai</h2><p class="text-gray-400 mb-8 max-w-lg mx-auto">Entre em contato e marque sua consulta.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a></section>
+</Layout>

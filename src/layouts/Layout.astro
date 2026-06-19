@@ -9,7 +9,16 @@ export interface Props {
   description?: string
 }
 
-const { title = 'La Miguens | Fisioterapia e Pilates em Porto Alegre', description = 'Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.' } = Astro.props
+const { title = 'Fisioterapia na Zona Sul de Porto Alegre | Atendimento Rápido', description = 'Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre. Agende sua avaliação e descubra o tratamento ideal para você.' } = Astro.props
+
+const pathParts = Astro.url.pathname.split('/').filter(Boolean)
+const breadcrumbItems = [{ name: 'Home', item: '/' }]
+let accumulated = ''
+for (const part of pathParts.slice(0, -1)) {
+  accumulated += '/' + part
+  breadcrumbItems.push({ name: part.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: accumulated + '/' })
+}
+if (pathParts.length > 0) breadcrumbItems.push({ name: pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: Astro.url.pathname })
 ---
 
 <!doctype html>
@@ -33,5 +42,25 @@ const { title = 'La Miguens | Fisioterapia e Pilates em Porto Alegre', descripti
     </main>
     <Footer />
     <FloatingWhatsApp />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Physiotherapy",
+      "name": "Clínica de Fisioterapia na Zona Sul",
+      "description": "Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.",
+      "url": "https://www.suaclinica.com.br",
+      "telephone": "+555193408269",
+      "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
+      "areaServed": ["Tristeza", "Cristal", "Vila Assunção", "Cavalhada", "Ipanema", "Guarujá", "Nonoai", "Camaquã"]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbItems.map((item, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": item.name,
+        "item": `https://www.suaclinica.com.br${item.item}`
+      }))
+    })} />
   </body>
 </html>

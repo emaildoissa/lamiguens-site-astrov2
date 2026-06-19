@@ -1,0 +1,99 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GoldDivider from '@/components/GoldDivider.astro'
+const neighborhoods = [
+  { name: 'Tristeza', href: '/bairros/tristeza' },
+  { name: 'Cristal', href: '/bairros/cristal' },
+  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' },
+  { name: 'Cavalhada', href: '/bairros/cavalhada' },
+]
+const faqs = [
+  { q: 'O que é RPG?', a: 'RPG (Reeducação Postural Global) é um método de fisioterapia que trata desvios posturais através de alongamentos globais e posturas específicas.' },
+  { q: 'Quantas sessões de RPG são necessárias?', a: 'Geralmente de 10 a 20 sessões, dependendo do quadro. Os resultados começam a aparecer já nas primeiras sessões.' },
+  { q: 'RPG é melhor que fisioterapia convencional?', a: 'São abordagens complementares. A RPG é especialmente eficaz para problemas posturais e dores crônicas, enquanto a fisioterapia convencional trata lesões específicas.' },
+  { q: 'Quais problemas a RPG trata?', a: 'Escoliose, hipercifose, dores nas costas, enxaqueca postural, problemas respiratórios e dores articulares de origem postural.' },
+]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre RPG."
+---
+
+<Layout title="RPG na Zona Sul de Porto Alegre | Reeducação Postural Global" description="RPG (Reeducação Postural Global) na Zona Sul de Porto Alegre. Trate desvios posturais, dores crônicas e melhore sua qualidade de vida.">
+  <section class="py-20 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">RPG na Zona Sul de Porto Alegre</h1>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl">Reeducação Postural Global — método eficaz para corrigir desvios posturais e aliviar dores crônicas.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Indicações da RPG</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {['Escoliose e hipercifose', 'Dores nas costas crônicas', 'Hérnia de disco', 'Enxaqueca e cefaleia postural', 'Problemas respiratórios', 'Dores articulares', 'Péssima postura no trabalho', 'Lombalgia crônica'].map(item => (
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span class="text-base">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Como funciona a RPG</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '1', title: 'Avaliação postural', desc: 'Análise detalhada da postura em pé, sentado e em movimento para identificar desvios e compensações.' },
+          { step: '2', title: 'Posturas de tratamento', desc: 'Séries de alongamentos globais ativos em posições específicas para alongar cadeias musculares encurtadas.' },
+          { step: '3', title: 'Reeducação', desc: 'Integração dos ganhos posturais no dia a dia com orientação de exercícios e ajustes ergonômicos.' },
+        ].map(item => (
+          <div class="text-center p-6">
+            <span class="text-4xl font-bold text-lm-gold block mb-4">{item.step}</span>
+            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Atendemos neste serviço em:</h2>
+      <div class="flex flex-wrap gap-4">
+        {neighborhoods.map(n => (
+          <a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <section class="py-16 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2>
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <details class="group border border-gray-200 rounded-lg">
+            <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+            <div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 text-center bg-black text-white">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Corrija sua postura hoje</h2>
+    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende uma avaliação de RPG e descubra como melhorar sua postura e qualidade de vida.</p>
+    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  </section>
+</Layout>

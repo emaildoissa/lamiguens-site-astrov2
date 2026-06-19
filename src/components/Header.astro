@@ -1,13 +1,13 @@
 ---
 const services = [
-  { label: 'Pilates', href: '/pilates' },
-  { label: 'Fisioterapia', href: '/fisioterapia' },
-  { label: 'Treinamento Funcional', href: '/treinamento-funcional' },
-  { label: 'Fisioterapia Esportiva', href: '/fisio-esportiva' },
-  { label: 'Tratamento de Dor Crônica', href: '/tratamento-dor-cronica' },
-  { label: 'Fisio Recovery', href: '/fisio-recovery' },
-  { label: 'Neuromodulação', href: '/reabilitacao' },
-  { label: 'Outras Especialidades', href: '/outras-especialidades' },
+  { label: 'Fisioterapia Ortopédica', href: '/servicos/fisioterapia-ortopedica' },
+  { label: 'Fisioterapia Pós-Operatória', href: '/servicos/fisioterapia-pos-operatoria' },
+  { label: 'Fisioterapia Domiciliar', href: '/servicos/fisioterapia-domiciliar' },
+  { label: 'RPG', href: '/servicos/rpg' },
+  { label: 'Pilates Terapêutico', href: '/servicos/pilates-terapeutico' },
+  { label: 'Fisioterapia Esportiva', href: '/servicos/fisioterapia-esportiva' },
+  { label: 'Reabilitação da Coluna', href: '/servicos/reabilitacao-da-coluna' },
+  { label: 'Acupuntura', href: '/servicos/acupuntura' },
 ]
 ---
 
@@ -16,7 +16,7 @@ const services = [
     <div class="flex justify-between items-center">
       <div data-purpose="logo-container">
         <a href="/" class="flex items-center">
-          <img src="/images/logo.png" alt="La Miguens Logo" class="h-20 md:h-28 w-auto transition-all duration-300" />
+          <img src="/images/logo.png" alt="Logo Fisioterapia" class="h-20 md:h-28 w-auto transition-all duration-300" />
         </a>
       </div>
 
@@ -32,7 +32,7 @@ const services = [
       <nav data-purpose="main-navigation" class="hidden md:block">
         <ul class="flex flex-wrap justify-center gap-6 text-sm font-medium uppercase tracking-wide items-center">
           <li><a href="/" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Home</a></li>
-          <li><a href="/sobre" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Sobre</a></li>
+          <li><a href="/como-funciona" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Como Funciona</a></li>
           <li class="relative group py-4">
             <button id="desktop-services-btn" class="lm-nav-link text-white hover:text-lm-pink transition-colors flex items-center gap-1 cursor-pointer uppercase font-medium" aria-haspopup="true" aria-expanded="false">
               Serviços
@@ -46,10 +46,10 @@ const services = [
               </ul>
             </div>
           </li>
-          <li><a href="/#pacotes" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Planos de Tratamento</a></li>
+          <li><a href="/#planos" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Planos</a></li>
           <li><a href="/blog" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Blog</a></li>
-          <li><a href="/casos-de-sucesso" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Casos</a></li>
-          <li><a href="/#localizacao" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Contato</a></li>
+          <li><a href="/bairros" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Regiões</a></li>
+          <li><a href="/contato" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -57,7 +57,7 @@ const services = [
     <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20">
       <ul class="flex flex-col gap-4 text-sm font-medium uppercase tracking-wide pt-4 px-2">
         <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/">Home</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/sobre">Sobre</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/como-funciona">Como Funciona</a></li>
         <li>
           <button id="mobile-services-btn" class="flex justify-between w-full text-left text-white hover:text-lm-pink transition-colors py-2 uppercase font-medium items-center" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">
             Serviços
@@ -69,10 +69,10 @@ const services = [
             ))}
           </ul>
         </li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#pacotes">Planos de Tratamento</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#planos">Planos</a></li>
         <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/blog">Blog</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/casos-de-sucesso">Casos</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#localizacao">Contato</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/bairros">Regiões</a></li>
+        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/contato">Contato</a></li>
       </ul>
     </nav>
   </div>

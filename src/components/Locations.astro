@@ -1,107 +1,36 @@
 ---
-const citiesData = {
-  "New York": [{ name: "Brookfield Place", status: "Coming Soon" }, { name: "Williamsburg", status: "Coming Soon" }, { name: "Flatiron" }],
-  "Los Angeles": [{ name: "Manhattan Beach", status: "Coming Soon" }, { name: "Brentwood" }, { name: "West Hollywood" }, { name: "Studio City" }],
-  "Toronto": [{ name: "PATH Brookfield Place" }, { name: "Mississauga" }, { name: "Liberty Village" }],
-  "Calgary": [{ name: "17th Avenue" }, { name: "Kensington" }],
-  "Vancouver": [{ name: "Kitsilano" }, { name: "Fraser" }, { name: "Main Street" }, { name: "Chinatown" }],
-}
-
-const cities = Object.keys(citiesData)
-const firstCity = cities[0]
+const neighborhoods = [
+  { name: "Tristeza", desc: "Bairro tradicional da Zona Sul", services: ["Fisioterapia Ortopédica", "Fisioterapia Domiciliar", "RPG"], href: "/bairros/tristeza" },
+  { name: "Cristal", desc: "Próximo ao Shopping Zona Sul", services: ["Fisioterapia Ortopédica", "Fisioterapia Pós-Operatória", "Pilates"], href: "/bairros/cristal" },
+  { name: "Vila Assunção", desc: "Bairro nobre e arborizado", services: ["Fisioterapia Ortopédica", "RPG", "Fisioterapia Domiciliar"], href: "/bairros/vila-assuncao" },
+  { name: "Cavalhada", desc: "Próximo ao BarraShoppingSul", services: ["Fisioterapia Pós-Operatória", "Fisioterapia Domiciliar", "RPG"], href: "/bairros/cavalhada" },
+]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de mais informações sobre a clínica."
 ---
 
-<section class="bg-white text-black py-20 px-6 md:px-12">
+<section class="bg-lm-beige text-black py-20 px-6 md:px-12">
   <div class="max-w-7xl mx-auto">
     <div class="mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Ready to try Myo?</h2>
-      <p class="text-xl opacity-70">Find your nearest location.</p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Atendemos na Zona Sul</h2>
+      <p class="text-xl opacity-70">Encontre o bairro mais próximo de você.</p>
     </div>
-    <div class="flex flex-col md:flex-row gap-12">
-      <div class="w-full md:w-[250px]">
-        <div id="city-tabs" class="flex md:flex-col overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 gap-6 md:gap-4 no-scrollbar">
-          {cities.map((city) => (
-            <button key={city} data-city={city} class="city-tab text-2xl font-medium text-left whitespace-nowrap transition-opacity {city === firstCity ? 'opacity-100' : 'opacity-30 hover:opacity-50'}">{city}</button>
-          ))}
-        </div>
-      </div>
-      <div class="flex-1">
-        <div id="locations-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {citiesData[firstCity].map((location) => (
-            <div data-location-city={firstCity} class="location-card flex flex-col gap-6 p-8 border border-[#E5E5E5] rounded-xl hover:border-black transition-colors group">
-              <div>
-                <h4 class="text-xl font-bold mb-1">{location.name}</h4>
-                {location.status && <span class="text-xs font-bold uppercase tracking-wider text-black/50">{location.status}</span>}
-              </div>
-              <div class="mt-auto flex flex-col gap-4">
-                <button class="text-sm font-medium underline text-left hover:no-underline">View Location</button>
-                <button class="w-full bg-black text-white py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-transform active:scale-95">BOOK NOW</button>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div id="other-locations" class="hidden">
-          {cities.filter(c => c !== firstCity).map((city) => (
-            citiesData[city].map((location) => (
-              <div data-location-city={city} class="location-card flex flex-col gap-6 p-8 border border-[#E5E5E5] rounded-xl hover:border-black transition-colors group">
-                <div>
-                  <h4 class="text-xl font-bold mb-1">{location.name}</h4>
-                  {location.status && <span class="text-xs font-bold uppercase tracking-wider text-black/50">{location.status}</span>}
-                </div>
-                <div class="mt-auto flex flex-col gap-4">
-                  <button class="text-sm font-medium underline text-left hover:no-underline">View Location</button>
-                  <button class="w-full bg-black text-white py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-transform active:scale-95">BOOK NOW</button>
-                </div>
-              </div>
-            ))
-          ))}
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {neighborhoods.map((n) => (
+        <a href={n.href} class="flex flex-col gap-4 p-8 bg-white border border-[#E5E5E5] rounded-xl hover:border-lm-pink hover:shadow-lg transition-all group">
+          <div>
+            <h4 class="text-xl font-bold mb-1 group-hover:text-lm-pink transition-colors">{n.name}</h4>
+            <span class="text-xs font-bold uppercase tracking-wider text-black/50">{n.desc}</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            {n.services.map(s => (
+              <span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-lm-beige rounded-full font-medium">{s}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex bg-black text-white px-8 py-4 rounded-full font-bold text-base hover:bg-black/90 transition-colors uppercase tracking-wide">AGENDE SUA AVALIAÇÃO</a>
     </div>
   </div>
 </section>
-
-<script>
-  const data = {
-    "New York": [{ name: "Brookfield Place", status: "Coming Soon" }, { name: "Williamsburg", status: "Coming Soon" }, { name: "Flatiron" }],
-    "Los Angeles": [{ name: "Manhattan Beach", status: "Coming Soon" }, { name: "Brentwood" }, { name: "West Hollywood" }, { name: "Studio City" }],
-    "Toronto": [{ name: "PATH Brookfield Place" }, { name: "Mississauga" }, { name: "Liberty Village" }],
-    "Calgary": [{ name: "17th Avenue" }, { name: "Kensington" }],
-    "Vancouver": [{ name: "Kitsilano" }, { name: "Fraser" }, { name: "Main Street" }, { name: "Chinatown" }],
-  };
-
-  const tabs = document.querySelectorAll('.city-tab');
-  const grid = document.getElementById('locations-grid');
-
-  function renderCity(city) {
-    grid.innerHTML = '';
-    data[city].forEach(loc => {
-      const card = document.createElement('div');
-      card.className = 'location-card flex flex-col gap-6 p-8 border border-[#E5E5E5] rounded-xl hover:border-black transition-colors group';
-      card.innerHTML = `
-        <div>
-          <h4 class="text-xl font-bold mb-1">${loc.name}</h4>
-          ${loc.status ? `<span class="text-xs font-bold uppercase tracking-wider text-black/50">${loc.status}</span>` : ''}
-        </div>
-        <div class="mt-auto flex flex-col gap-4">
-          <button class="text-sm font-medium underline text-left hover:no-underline">View Location</button>
-          <button class="w-full bg-black text-white py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-transform active:scale-95">BOOK NOW</button>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const city = tab.dataset.city;
-      tabs.forEach(t => {
-        t.classList.remove('opacity-100');
-        t.classList.add('opacity-30', 'hover:opacity-50');
-      });
-      tab.classList.remove('opacity-30', 'hover:opacity-50');
-      tab.classList.add('opacity-100');
-      renderCity(city);
-    });
-  });
-</script>

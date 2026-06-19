@@ -1,0 +1,52 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GoldDivider from '@/components/GoldDivider.astro'
+const neighborhoods = [
+  { name: 'Tristeza', href: '/bairros/tristeza' }, { name: 'Cristal', href: '/bairros/cristal' },
+  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' }, { name: 'Cavalhada', href: '/bairros/cavalhada' },
+  { name: 'Ipanema', href: '/bairros/ipanema' },
+]
+const faqs = [
+  { q: 'O que é fisioterapia esportiva?', a: 'É uma especialidade focada na prevenção, tratamento e reabilitação de lesões relacionadas à prática esportiva e atividade física.' },
+  { q: 'Preciso ser atleta profissional?', a: 'Não. Atendemos desde atletas amadores até profissionais, corredores de rua, praticantes de crossfit, musculação e esportes em geral.' },
+  { q: 'Quanto tempo dura o tratamento?', a: 'Depende da lesão e do objetivo. Lesões agudas podem ter alta em poucas semanas; reabilitações mais complexas podem levar meses.' },
+  { q: 'Vocês ajudam na prevenção de lesões?', a: 'Sim. Oferecemos programas de prevenção com avaliação biomecânica e fortalecimento específico para modalidade esportiva.' },
+]
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia esportiva."
+---
+<Layout title="Fisioterapia Esportiva na Zona Sul de Porto Alegre" description="Fisioterapia esportiva na Zona Sul de Porto Alegre. Reabilitação de lesões esportivas e prevenção. Atendimento especializado para atletas.">
+  <section class="py-20 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia Esportiva na Zona Sul de Porto Alegre</h1>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl">Tratamento especializado para lesões esportivas e programas de prevenção para atletas de todos os níveis.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+    </div>
+  </section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Lesões tratadas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {['Lesões musculares e estiramentos', 'Entorses de tornozelo', 'Lesões do joelho (LCA, menisco)', 'Tendinites no esporte', 'Lesões do ombro no atleta', 'Fascite plantar', 'Síndrome da banda iliotibial', 'Lombalgia no esporte'].map(item => (
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-base">{item}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Como funciona</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[{ step: '1', title: 'Avaliação esportiva', desc: 'Análise do gesto esportivo, biomecânica e histórico de lesões para diagnóstico preciso.' },{ step: '2', title: 'Reabilitação funcional', desc: 'Tratamento focado no retorno seguro ao esporte com exercícios específicos da modalidade.' },{ step: '3', title: 'Prevenção', desc: 'Programa de fortalecimento e correção de movimentos para evitar novas lesões.' }].map(item => (
+          <div class="text-center p-6"><span class="text-4xl font-bold text-lm-gold block mb-4">{item.step}</span><h3 class="text-lg font-bold mb-2">{item.title}</h3><p class="text-gray-600 text-sm">{item.desc}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Atendemos neste serviço em:</h2><div class="flex flex-wrap gap-4">{neighborhoods.map(n => (<a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>))}</div></div></section>
+  <GoldDivider />
+  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2><div class="space-y-4">{faqs.map(faq => (<details class="group border border-gray-200 rounded-lg"><summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div></details>))}</div></div></section>
+  <section class="py-16 px-6 text-center bg-black text-white"><h2 class="text-2xl md:text-3xl font-bold mb-6">Volte a praticar seu esporte sem dor</h2><p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende sua avaliação e descubra como podemos ajudar você a voltar ao seu melhor desempenho.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a></section>
+</Layout>

@@ -1,0 +1,50 @@
+---
+import Layout from '@/layouts/Layout.astro'
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber como funciona o atendimento."
+
+const steps = [
+  { title: "1. Contato", desc: "Você nos chama pelo WhatsApp e conta um pouco sobre seu caso. Agendamos sua avaliação inicial." },
+  { title: "2. Avaliação", desc: "Na primeira sessão, fazemos uma avaliação completa: histórico, testes ortopédicos e análise biomecânica." },
+  { title: "3. Diagnóstico", desc: "Identificamos a causa do problema e traçamos um plano de tratamento personalizado para você." },
+  { title: "4. Tratamento", desc: "Sessões individuais com técnicas de terapia manual, exercícios terapêuticos e recursos específicos." },
+  { title: "5. Acompanhamento", desc: "Ajustamos o tratamento conforme sua evolução e preparamos você para a alta com segurança." },
+  { title: "6. Prevenção", desc: "Programa de exercícios domiciliares e orientações para evitar que o problema volte." },
+]
+---
+
+<Layout title="Como Funciona a Fisioterapia na Zona Sul de Porto Alegre" description="Saiba como funciona nosso atendimento de fisioterapia na Zona Sul de Porto Alegre. Da avaliação à alta, entenda cada etapa.">
+  <section class="py-20 px-6 bg-white text-black">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Como Funciona o Atendimento</h1>
+      <p class="text-lg text-gray-600 mb-10 max-w-2xl">Da avaliação à alta, entenda cada etapa do nosso tratamento fisioterapêutico na Zona Sul de Porto Alegre.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {steps.map(step => (
+          <div class="p-6 border border-gray-200 rounded-xl hover:border-lm-pink transition-colors">
+            <h2 class="text-xl font-bold mb-2">{step.title}</h2>
+            <p class="text-gray-600">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-lm-beige text-black">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">O que está incluído na avaliação inicial</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Entrevista detalhada</h3><p class="text-gray-600 text-sm">Histórico completo da sua condição, estilo de vida e objetivos.</p></div>
+        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Testes específicos</h3><p class="text-gray-600 text-sm">Testes ortopédicos e neurológicos para diagnóstico preciso.</p></div>
+        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Plano personalizado</h3><p class="text-gray-600 text-sm">Plano de tratamento com metas claras e prazos estimados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 text-center bg-black text-white">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Pronto para começar?</h2>
+    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende sua avaliação e descubra como podemos ajudar você.</p>
+    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  </section>
+</Layout>
