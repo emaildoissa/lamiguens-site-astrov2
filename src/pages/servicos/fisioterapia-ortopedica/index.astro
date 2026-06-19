@@ -1,7 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 
-const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia ortopédica."
+import { WHATSAPP } from '@/lib/consts'
+const whatsapp = `https://wa.me/${WHATSAPP}?text=Olá! Gostaria de saber mais sobre fisioterapia ortopédica.`
 
 const conditions = [
   { name: "Dores articulares crônicas", icon: "M13 10V3L4 14h7v7l9-11h-7z" },

@@ -1,7 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 
-const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre reabilitação da coluna."
+import { WHATSAPP } from '@/lib/consts'
+const whatsapp = `https://wa.me/${WHATSAPP}?text=Olá! Gostaria de saber mais sobre reabilitação da coluna.`
 
 const conditions = [
   { name: "Hérnia de disco", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },

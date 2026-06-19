@@ -1,7 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 
-const whatsapp = "https://wa.me/555193408269?text=Olá! Tenho dúvidas sobre a diferença entre fisioterapia e RPG."
+import { WHATSAPP } from '@/lib/consts'
+const whatsapp = `https://wa.me/${WHATSAPP}?text=Olá! Tenho dúvidas sobre a diferença entre fisioterapia e RPG.`
 
 const relatedPosts = [
   { title: 'Pilates Terapêutico para Coluna Funciona?', href: '/blog/pilates-terapeutico-para-coluna-funciona' },

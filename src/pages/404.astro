@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title="Página não encontrada | Fisioterapia Zona Sul" description="A página que você procura não existe. Volte para a página inicial da clínica de fisioterapia na Zona Sul de Porto Alegre.">
+  <section class="relative min-h-[80vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[150px] pointer-events-none" />
+    <div class="relative z-10 container mx-auto px-6 text-center">
+      <span class="text-[120px] md:text-[180px] font-serif font-bold text-lm-pink/20 leading-none block mb-4">404</span>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6 tracking-tight">Página não encontrada</h1>
+      <p class="text-lg text-white/60 max-w-md mx-auto mb-10">A página que você procura pode ter sido movida ou não existe mais.</p>
+      <a href="/" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+        Voltar para o início
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

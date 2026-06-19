@@ -74,12 +74,13 @@ const services = [
 
   function handleScroll() {
     const y = window.scrollY;
+    if (!header) return;
     if (y > 20) { header.classList.add('shadow-sm'); header.querySelector('.lm-glass')?.classList.add('bg-white/90'); }
     else { header.classList.remove('shadow-sm'); header.querySelector('.lm-glass')?.classList.remove('bg-white/90'); }
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
 
-  function toggleMobileMenu(open) {
+  function toggleMobileMenu(open?: boolean) {
     const isOpen = open ?? mobileMenu?.classList.contains('hidden');
     mobileMenu?.classList.toggle('hidden', !isOpen);
     iconBars?.classList.toggle('hidden', isOpen);
@@ -87,7 +88,7 @@ const services = [
     mobileBtn?.setAttribute('aria-expanded', String(!!isOpen));
     mobileBtn?.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
-  function toggleMobileSubmenu(open) {
+  function toggleMobileSubmenu(open?: boolean) {
     const isOpen = open ?? servicesSubmenu?.classList.contains('hidden');
     servicesSubmenu?.classList.toggle('hidden', !isOpen);
     servicesSubmenu?.classList.toggle('flex', !!isOpen);

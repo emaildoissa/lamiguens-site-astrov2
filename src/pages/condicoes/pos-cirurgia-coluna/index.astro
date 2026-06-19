@@ -1,7 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 
-const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre recuperação de cirurgia de coluna."
+import { WHATSAPP } from '@/lib/consts'
+const whatsapp = `https://wa.me/${WHATSAPP}?text=Olá! Gostaria de saber mais sobre recuperação de cirurgia de coluna.`
 
 const symptoms = [
   { name: "Microdiscectomia", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
