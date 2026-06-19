@@ -1,26 +1,85 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de mais informações sobre a clínica."
+
+const relatedPosts = [
+  { title: 'Quanto Custa Fisioterapia em Porto Alegre?', href: '/blog/quanto-custa-fisioterapia-em-porto-alegre' },
+  { title: 'Fisioterapia Domiciliar Vale a Pena?', href: '/blog/fisioterapia-domiciliar-vale-a-pena' },
+]
 ---
+
 <Layout title="Como Escolher uma Fisioterapia na Zona Sul de Porto Alegre" description="Dicas para escolher a melhor clínica de fisioterapia na Zona Sul de Porto Alegre. O que considerar antes de agendar seu tratamento.">
-  <section class="py-20 px-6 bg-white text-black"><div class="max-w-3xl mx-auto">
-    <p class="text-sm text-lm-pink font-bold uppercase tracking-wider mb-4">Blog</p>
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Como Escolher uma Fisioterapia na Zona Sul de Porto Alegre</h1>
-    <p class="text-gray-500 text-sm mb-8">Atualizado em junho de 2026</p>
-    <div class="prose prose-gray max-w-none space-y-5 text-gray-700">
-      <p>Escolher a clínica de fisioterapia certa faz toda a diferença no seu tratamento. Veja o que considerar ao buscar atendimento na Zona Sul de Porto Alegre.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">1. Localização</h2>
-      <p>Prefira clínicas próximas à sua casa ou trabalho. A Zona Sul oferece bairros como Tristeza, Cristal, Vila Assunção e Cavalhada com fácil acesso. A proximidade facilita a frequência às sessões.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">2. Especialidades</h2>
-      <p>Verifique se a clínica oferece o tratamento específico que você precisa: fisioterapia ortopédica, RPG, pilates terapêutico, acupuntura, entre outros.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">3. Profissionais</h2>
-      <p>Busque referências sobre a formação e experiência dos fisioterapeutas. Profissionais atualizados e especializados fazem diferença no resultado.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">4. Atendimento</h2>
-      <p>O atendimento humanizado e individualizado é essencial. Clínicas que oferecem sessões exclusivas tendem a ter melhores resultados que aquelas com atendimento em grupo.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">5. Avaliação inicial</h2>
-      <p>Uma boa clínica faz uma avaliação completa antes de iniciar o tratamento, com testes específicos e plano personalizado.</p>
-      <p class="font-bold text-black mt-8">Agende uma visita e conheça nossa clínica!</p>
+  <section class="relative min-h-[55vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full">
+      <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Blog</span>
+      </div>
+      <h1 class="text-[32px] md:text-[52px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Como Escolher uma Fisioterapia na Zona Sul de Porto Alegre</h1>
+      <p class="text-white/40 mt-4 lm-hero-sub text-sm">Atualizado em junho de 2026</p>
     </div>
-    <div class="mt-10"><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all">Fale conosco pelo WhatsApp</a></div>
-  </div></section>
+  </section>
+
+  <section class="py-20 px-6 bg-white text-black lm-reveal">
+    <div class="max-w-3xl mx-auto">
+      <div class="prose prose-gray max-w-none space-y-5 text-gray-700 text-base leading-relaxed">
+        <p class="text-lg text-gray-600">Escolher a clínica de fisioterapia certa faz toda a diferença no seu tratamento. Veja o que considerar ao buscar atendimento na Zona Sul de Porto Alegre.</p>
+
+        {[
+          { num: '01', title: 'Localização', desc: 'Prefira clínicas próximas à sua casa ou trabalho. A Zona Sul oferece bairros como Tristeza, Cristal, Vila Assunção e Cavalhada com fácil acesso. A proximidade facilita a frequência às sessões.' },
+          { num: '02', title: 'Especialidades', desc: 'Verifique se a clínica oferece o tratamento específico que você precisa: fisioterapia ortopédica, RPG, pilates terapêutico, acupuntura, entre outros.' },
+          { num: '03', title: 'Profissionais', desc: 'Busque referências sobre a formação e experiência dos fisioterapeutas. Profissionais atualizados e especializados fazem diferença no resultado.' },
+          { num: '04', title: 'Atendimento', desc: 'O atendimento humanizado e individualizado é essencial. Clínicas que oferecem sessões exclusivas tendem a ter melhores resultados que aquelas com atendimento em grupo.' },
+          { num: '05', title: 'Avaliação inicial', desc: 'Uma boa clínica faz uma avaliação completa antes de iniciar o tratamento, com testes específicos e plano personalizado.' },
+        ].map(item => (
+          <div class="not-prose flex gap-5 my-10">
+            <span class="text-[40px] md:text-[56px] font-serif font-bold text-lm-pink/10 leading-none shrink-0">{item.num}</span>
+            <div>
+              <h2 class="text-xl font-bold text-black mb-2">{item.title}</h2>
+              <p class="text-gray-600 text-base leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+
+        <p class="font-bold text-black mt-10 text-lg">Agende uma visita e conheça nossa clínica!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-lm-beige text-black lm-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Relacionados</span>
+        <span class="h-px flex-1 bg-lm-pink/10" />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {relatedPosts.map(p => (
+          <a href={p.href} class="group bg-white rounded-xl p-6 lm-card border border-gray-100/80">
+            <h3 class="text-base font-bold group-hover:text-lm-pink transition-colors">{p.title}</h3>
+            <div class="mt-3 flex items-center gap-1 text-lm-pink text-sm font-medium">
+              <span>Ler artigo</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-24 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[28px] md:text-[40px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Agende uma visita</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Conheça nossa clínica e descubra por que somos referência na Zona Sul.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Fale conosco
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
 </Layout>

@@ -1,25 +1,86 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Tenho dúvidas sobre a diferença entre fisioterapia e RPG."
+
+const relatedPosts = [
+  { title: 'Pilates Terapêutico para Coluna Funciona?', href: '/blog/pilates-terapeutico-para-coluna-funciona' },
+  { title: 'Como Funciona a Fisioterapia Pós-Operatória', href: '/blog/fisioterapia-pos-operatoria-como-funciona' },
+]
 ---
+
 <Layout title="Fisioterapia ou RPG: Qual a Diferença" description="Entenda a diferença entre fisioterapia convencional e RPG (Reeducação Postural Global). Saiba qual é o melhor tratamento para você.">
-  <section class="py-20 px-6 bg-white text-black"><div class="max-w-3xl mx-auto">
-    <p class="text-sm text-lm-pink font-bold uppercase tracking-wider mb-4">Blog</p>
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia ou RPG: Qual a Diferença</h1>
-    <p class="text-gray-500 text-sm mb-8">Atualizado em junho de 2026</p>
-    <div class="prose prose-gray max-w-none space-y-5 text-gray-700">
-      <p>Muitas pessoas têm dúvida sobre a diferença entre fisioterapia convencional e RPG. Embora ambas sejam formas de tratamento fisioterapêutico, elas têm abordagens distintas.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">Fisioterapia Convencional</h2>
-      <p>A fisioterapia tradicional foca no tratamento de lesões e condições específicas. Utiliza técnicas como terapia manual, exercícios terapêuticos, eletroterapia e crioterapia para tratar diretamente o problema identificado.</p>
-      <p><strong>Ideal para:</strong> Lesões agudas, pós-operatório, reabilitação de lesões esportivas, dores localizadas.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">RPG (Reeducação Postural Global)</h2>
-      <p>A RPG é um método que trata o corpo de forma global, trabalhando com posturas de alongamento que atuam em cadeias musculares inteiras. O objetivo é corrigir desvios posturais e tratar a causa raiz dos problemas.</p>
-      <p><strong>Ideal para:</strong> Desvios posturais (escoliose, hipercifose), dores crônicas, problemas respiratórios, enxaqueca postural.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">Qual escolher?</h2>
-      <p>Não existe uma resposta única — as duas abordagens são complementares. O ideal é passar por uma avaliação para determinar qual método (ou combinação deles) é mais adequado para o seu caso.</p>
-      <p class="font-bold text-black mt-8">Agende uma avaliação e descubra o melhor tratamento para você!</p>
+  <section class="relative min-h-[55vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full">
+      <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Blog</span>
+      </div>
+      <h1 class="text-[32px] md:text-[52px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Fisioterapia ou RPG: Qual a Diferença</h1>
+      <p class="text-white/40 mt-4 lm-hero-sub text-sm">Atualizado em junho de 2026</p>
     </div>
-    <div class="mt-10"><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all">Fale conosco pelo WhatsApp</a></div>
-  </div></section>
+  </section>
+
+  <section class="py-20 px-6 bg-white text-black lm-reveal">
+    <div class="max-w-3xl mx-auto">
+      <div class="prose prose-gray max-w-none space-y-5 text-gray-700 text-base leading-relaxed">
+        <p class="text-lg text-gray-600">Muitas pessoas têm dúvida sobre a diferença entre fisioterapia convencional e RPG. Embora ambas sejam formas de tratamento fisioterapêutico, elas têm abordagens distintas.</p>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-4">Fisioterapia Convencional</h2>
+        <p>A fisioterapia tradicional foca no tratamento de lesões e condições específicas. Utiliza técnicas como terapia manual, exercícios terapêuticos, eletroterapia e crioterapia para tratar diretamente o problema identificado.</p>
+        <div class="not-prose bg-lm-cream/50 rounded-xl px-6 py-4 border border-gray-100 mt-4 mb-8">
+          <p class="text-sm font-bold text-gray-700 mb-1">Ideal para:</p>
+          <p class="text-sm text-gray-500">Lesões agudas, pós-operatório, reabilitação de lesões esportivas, dores localizadas.</p>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-4">RPG (Reeducação Postural Global)</h2>
+        <p>A RPG é um método que trata o corpo de forma global, trabalhando com posturas de alongamento que atuam em cadeias musculares inteiras. O objetivo é corrigir desvios posturais e tratar a causa raiz dos problemas.</p>
+        <div class="not-prose bg-lm-cream/50 rounded-xl px-6 py-4 border border-gray-100 mt-4 mb-8">
+          <p class="text-sm font-bold text-gray-700 mb-1">Ideal para:</p>
+          <p class="text-sm text-gray-500">Desvios posturais (escoliose, hipercifose), dores crônicas, problemas respiratórios, enxaqueca postural.</p>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-4">Qual escolher?</h2>
+        <p>Não existe uma resposta única — as duas abordagens são complementares. O ideal é passar por uma avaliação para determinar qual método (ou combinação deles) é mais adequado para o seu caso.</p>
+
+        <p class="font-bold text-black mt-10 text-lg">Agende uma avaliação e descubra o melhor tratamento para você!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-lm-beige text-black lm-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Relacionados</span>
+        <span class="h-px flex-1 bg-lm-pink/10" />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {relatedPosts.map(p => (
+          <a href={p.href} class="group bg-white rounded-xl p-6 lm-card border border-gray-100/80">
+            <h3 class="text-base font-bold group-hover:text-lm-pink transition-colors">{p.title}</h3>
+            <div class="mt-3 flex items-center gap-1 text-lm-pink text-sm font-medium">
+              <span>Ler artigo</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-24 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[28px] md:text-[40px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Quer saber qual tratamento é ideal para você?</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Agende uma avaliação e descubra a melhor abordagem para o seu caso.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Falar com especialista
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
 </Layout>

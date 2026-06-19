@@ -4,20 +4,14 @@ import Footer from '@/components/Footer.astro'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp.astro'
 import '@/styles/global.css'
 
-export interface Props {
-  title?: string
-  description?: string
-}
+export interface Props { title?: string; description?: string }
 
 const { title = 'Fisioterapia na Zona Sul de Porto Alegre | Atendimento Rápido', description = 'Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre. Agende sua avaliação e descubra o tratamento ideal para você.' } = Astro.props
 
 const pathParts = Astro.url.pathname.split('/').filter(Boolean)
 const breadcrumbItems = [{ name: 'Home', item: '/' }]
 let accumulated = ''
-for (const part of pathParts.slice(0, -1)) {
-  accumulated += '/' + part
-  breadcrumbItems.push({ name: part.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: accumulated + '/' })
-}
+for (const part of pathParts.slice(0, -1)) { accumulated += '/' + part; breadcrumbItems.push({ name: part.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: accumulated + '/' }) }
 if (pathParts.length > 0) breadcrumbItems.push({ name: pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: Astro.url.pathname })
 ---
 
@@ -33,34 +27,28 @@ if (pathParts.length > 0) breadcrumbItems.push({ name: pathParts[pathParts.lengt
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   </head>
   <body class="font-sans min-h-screen flex flex-col">
+    <div class="lm-noise" aria-hidden="true" />
     <Header />
-    <main class="flex-1">
-      <slot />
-    </main>
+    <main class="flex-1"><slot /></main>
     <Footer />
     <FloatingWhatsApp />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Physiotherapy",
-      "name": "Clínica de Fisioterapia na Zona Sul",
-      "description": "Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.",
-      "url": "https://www.suaclinica.com.br",
-      "telephone": "+555193408269",
-      "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
-      "areaServed": ["Tristeza", "Cristal", "Vila Assunção", "Cavalhada", "Ipanema", "Guarujá", "Nonoai", "Camaquã"]
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": breadcrumbItems.map((item, i) => ({
-        "@type": "ListItem",
-        "position": i + 1,
-        "name": item.name,
-        "item": `https://www.suaclinica.com.br${item.item}`
-      }))
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "Physiotherapy", "name": "Clínica de Fisioterapia na Zona Sul", "description": "Clínica de fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.", "url": "https://www.suaclinica.com.br", "telephone": "+555193408269", "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" }, "areaServed": ["Tristeza", "Cristal", "Vila Assunção", "Cavalhada", "Ipanema", "Guarujá", "Nonoai", "Camaquã"] })} />
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": breadcrumbItems.map((item, i) => ({ "@type": "ListItem", "position": i + 1, "name": item.name, "item": `https://www.suaclinica.com.br${item.item}` })) })} />
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('lm-visible');
+              observer.unobserve(entry.target);
+            }
+          })
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.lm-reveal').forEach(el => observer.observe(el));
+      });
+    </script>
   </body>
 </html>

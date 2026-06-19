@@ -1,0 +1,99 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre a clínica na Zona Sul."
+
+const neighborhoods = [
+  { name: 'Tristeza', href: '/bairros/tristeza', desc: 'Bairro tradicional da Zona Sul, próximo ao Shopping Zona Sul.' },
+  { name: 'Cristal', href: '/bairros/cristal', desc: 'Região central da Zona Sul com fácil acesso.' },
+  { name: 'Vila Assunção', href: '/bairros/vila-assuncao', desc: 'Bairro nobre e arborizado à beira do Guaíba.' },
+  { name: 'Cavalhada', href: '/bairros/cavalhada', desc: 'Próximo ao BarraShoppingSul e à Av. Diário de Notícias.' },
+  { name: 'Ipanema', href: '/bairros/ipanema', desc: 'Bairro com forte comércio e serviços locais.' },
+  { name: 'Guarujá', href: '/bairros/guaruja', desc: 'Bairro residencial próximo ao Cristal.' },
+  { name: 'Nonoai', href: '/bairros/nonoai', desc: 'Região em crescimento na Zona Sul.' },
+  { name: 'Camaquã', href: '/bairros/camaqua', desc: 'Bairro com fácil acesso às principais vias.' },
+  { name: 'Santa Tereza', href: '/bairros/santa-tereza', desc: 'Bairro com vista privilegiada da cidade.' },
+  { name: 'Espírito Santo', href: '/bairros/espirito-santo', desc: 'Bairro residencial tranquilo da Zona Sul.' },
+]
+---
+
+<Layout title="Regiões Atendidas na Zona Sul de Porto Alegre" description="Clínica de fisioterapia na Zona Sul de Porto Alegre. Atendemos nos bairros Tristeza, Cristal, Vila Assunção, Cavalhada e mais.">
+  <!-- HERO -->
+  <section class="relative min-h-[55vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lm-pink/5 rounded-full blur-[140px] pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 w-full">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Regiões</span>
+        </div>
+        <h1 class="text-[40px] md:text-[64px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Regiões Atendidas</h1>
+        <p class="text-base md:text-lg text-white/40 mt-6 max-w-xl lm-hero-sub">Clínica de fisioterapia na Zona Sul de Porto Alegre. Atendemos 10 bairros com fácil acesso e estacionamento.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-3xl border-t border-white/5 pt-10">
+        <div>
+          <span class="text-[28px] md:text-[36px] font-serif font-bold text-lm-pink block leading-none">10</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Bairros atendidos</span>
+        </div>
+        <div>
+          <span class="text-[28px] md:text-[36px] font-serif font-bold text-lm-pink block leading-none">10</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Especialidades</span>
+        </div>
+        <div>
+          <span class="text-[28px] md:text-[36px] font-serif font-bold text-lm-pink block leading-none">100%</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Atendimento individual</span>
+        </div>
+        <div>
+          <span class="text-[28px] md:text-[36px] font-serif font-bold text-lm-pink block leading-none">8+</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Anos de experiência</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS GRID -->
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Bairros</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Atendemos<br class="hidden md:block" />na Zona Sul</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Clínicas estrategicamente localizadas para atender você perto da sua casa.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {neighborhoods.map((n, idx) => (
+          <a href={n.href} class="group relative bg-white rounded-2xl p-7 lm-card border border-gray-100/80 overflow-hidden flex items-center gap-5">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-lm-pink/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+            <div class="w-12 h-12 shrink-0 rounded-xl bg-lm-pink/5 flex items-center justify-center group-hover:bg-lm-pink/10 transition-colors">
+              <span class="text-lg font-bold text-lm-pink font-serif">{String(idx + 1).padStart(2, "0")}</span>
+            </div>
+            <div class="relative z-10">
+              <h3 class="text-lg font-bold mb-1 group-hover:text-lm-pink transition-colors">{n.name}</h3>
+              <p class="text-sm text-gray-500">{n.desc}</p>
+            </div>
+            <svg class="w-4 h-4 text-lm-pink/30 group-hover:text-lm-pink transition-colors shrink-0 ml-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Quer saber se atendemos<br />no seu bairro?</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Fale conosco pelo WhatsApp e descubra a clínica mais próxima da sua casa.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Fale conosco
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

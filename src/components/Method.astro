@@ -1,31 +1,34 @@
 ---
 const steps = [
-  { number: "1.", title: "AVALIAÇÃO COMPLETA", description: "Entendemos seu histórico, realizamos testes ortopédicos e biomecânicos para identificar a causa raiz do problema.", image: "/images/assets/67e7fb372378bc60f16a6764_Decrease_20pain.avif" },
-  { number: "2.", title: "TRATAMENTO MANUAL", description: "Técnicas de terapia manual para aliviar a dor, liberar tensões musculares e restaurar a mobilidade articular.", image: "/images/assets/67e7fb3707a3735f880b0512_Align.avif" },
-  { number: "3.", title: "EXERCÍCIOS TERAPÊUTICOS", description: "Exercícios personalizados para fortalecer, alongar e corrigir padrões de movimento que causam dor.", image: "/images/assets/67e7fb37c22904b2b27ec8be_Learn_20to_20move.avif" },
-  { number: "4.", title: "PREVENÇÃO", description: "Programa de exercícios domiciliares e orientações ergonômicas para evitar que o problema volte.", image: "/images/assets/67e7fb38b14405c330608974_Build_20strength.avif" },
-  { number: "5.", title: "ACOMPANHAMENTO", description: "Acompanhamos sua evolução e ajustamos o tratamento conforme necessário para garantir os melhores resultados.", image: "/images/assets/67e7fb374bb6437fb00c52f6_Move_20with_20purpose.avif" },
+  { number: "01", title: "AVALIAÇÃO", description: "Entendemos seu histórico, realizamos testes ortopédicos e biomecânicos para identificar a causa raiz do problema.", image: "/images/assets/67e7fb372378bc60f16a6764_Decrease_20pain.avif" },
+  { number: "02", title: "TRATAMENTO", description: "Técnicas de terapia manual para aliviar a dor, liberar tensões musculares e restaurar a mobilidade articular.", image: "/images/assets/67e7fb3707a3735f880b0512_Align.avif" },
+  { number: "03", title: "FORTALECIMENTO", description: "Exercícios personalizados para fortalecer, alongar e corrigir padrões de movimento que causam dor.", image: "/images/assets/67e7fb37c22904b2b27ec8be_Learn_20to_20move.avif" },
+  { number: "04", title: "PREVENÇÃO", description: "Programa de exercícios domiciliares e orientações ergonômicas para evitar que o problema volte.", image: "/images/assets/67e7fb38b14405c330608974_Build_20strength.avif" },
+  { number: "05", title: "ACOMPANHAMENTO", description: "Acompanhamos sua evolução e ajustamos o tratamento conforme necessário para garantir os melhores resultados.", image: "/images/assets/67e7fb374bb6437fb00c52f6_Move_20with_20purpose.avif" },
 ]
 ---
 
-<section class="bg-black text-white py-20 px-6 md:px-12">
-  <div class="max-w-7xl mx-auto">
-    <div class="mb-16 md:mb-24">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Nosso Método</h2>
-      <p class="text-lg md:text-xl text-white/80 max-w-2xl">Nosso método combina avaliação precisa, terapia manual avançada e exercícios personalizados para resultados duradouros.</p>
+<section class="relative bg-lm-charcoal text-white py-24 px-6 md:px-12 overflow-hidden lm-reveal">
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="mb-16 md:mb-24 max-w-2xl">
+      <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.2em] mb-4 block">Metodologia</span>
+      <h2 class="text-[36px] md:text-[56px] font-serif font-bold leading-[1.05] tracking-tight">Nosso Método</h2>
+      <p class="text-base md:text-lg text-white/50 mt-4 max-w-xl">Nosso método combina avaliação precisa, terapia manual avançada e exercícios personalizados para resultados duradouros.</p>
     </div>
-    <div class="flex flex-col gap-20 md:gap-32">
+    <div class="flex flex-col gap-16 md:gap-24">
       {steps.map((step, index) => (
-        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-24 {index % 2 === 1 ? 'md:flex-row-reverse' : ''}">
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16 {index % 2 === 1 ? 'md:flex-row-reverse' : ''}">
           <div class="flex-1 w-full">
-            <div class="relative aspect-square overflow-hidden rounded-2xl">
-              <img src={step.image} alt={step.title} class="absolute inset-0 w-full h-full object-cover" />
+            <div class="relative aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl">
+              <div class="absolute inset-0 bg-gradient-to-tr from-lm-pink/20 to-transparent z-10 mix-blend-overlay" />
+              <img src={step.image} alt={step.title} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
-          <div class="flex-1 flex flex-col justify-center">
-            <span class="text-base font-bold mb-2 tracking-wider">{step.number}</span>
-            <h3 class="text-3xl md:text-4xl font-bold uppercase mb-6 tracking-tight">{step.title}</h3>
-            <p class="text-base md:text-lg leading-relaxed text-white/70">{step.description}</p>
+          <div class="flex-1 flex flex-col justify-center max-w-lg">
+            <span class="text-6xl md:text-7xl font-serif font-bold text-lm-pink/20 leading-none mb-4">{step.number}</span>
+            <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4 tracking-tight">{step.title}</h3>
+            <p class="text-base md:text-lg leading-relaxed text-white/60">{step.description}</p>
           </div>
         </div>
       ))}

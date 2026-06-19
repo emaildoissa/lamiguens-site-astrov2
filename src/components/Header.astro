@@ -11,86 +11,58 @@ const services = [
 ]
 ---
 
-<header id="lm-header" class="sticky top-0 z-50 w-full transition-all duration-300 py-4 bg-transparent">
+<header id="lm-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-5">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center">
-      <div data-purpose="logo-container">
-        <a href="/" class="flex items-center">
-          <img src="/images/logo.png" alt="Logo Fisioterapia" class="h-20 md:h-28 w-auto transition-all duration-300" />
-        </a>
-      </div>
-
+    <div class="lm-glass rounded-2xl px-6 py-3 flex justify-between items-center border border-white/20 shadow-lg shadow-black/5">
+      <a href="/" class="flex items-center shrink-0">
+        <span class="font-serif text-2xl md:text-3xl font-bold text-lm-dark tracking-tight">Fisio<span class="text-lm-pink">Zona</span>Sul</span>
+      </a>
       <div class="md:hidden">
-        <button id="mobile-menu-btn" class="text-white hover:text-lm-pink rounded-md p-2" aria-label="Abrir menu">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menu-icon-bars" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
+        <button id="mobile-menu-btn" class="text-lm-dark hover:text-lm-pink rounded-md p-2 transition-colors" aria-label="Abrir menu">
+          <svg id="menu-icon-bars" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
-
-      <nav data-purpose="main-navigation" class="hidden md:block">
-        <ul class="flex flex-wrap justify-center gap-6 text-sm font-medium uppercase tracking-wide items-center">
-          <li><a href="/" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Home</a></li>
-          <li><a href="/como-funciona" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Como Funciona</a></li>
-          <li class="relative group py-4">
-            <button id="desktop-services-btn" class="lm-nav-link text-white hover:text-lm-pink transition-colors flex items-center gap-1 cursor-pointer uppercase font-medium" aria-haspopup="true" aria-expanded="false">
-              Serviços
-              <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-1 text-sm font-medium tracking-wide">
+          <li><a href="/" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Home</a></li>
+          <li><a href="/como-funciona" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Como Funciona</a></li>
+          <li class="relative group">
+            <button id="desktop-services-btn" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
+              Serviços<svg class="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div id="desktop-services-dropdown" class="absolute left-0 top-full hidden group-hover:block group-focus-within:block z-50" role="region" aria-label="Serviços">
-              <ul class="w-56 bg-white shadow-lg border border-gray-100 py-2">
-                {services.map((s) => (
-                  <li><a href={s.href} class="block px-4 py-2 text-sm text-gray-600 hover:bg-lm-beige hover:text-lm-pink">{s.label}</a></li>
-                ))}
-              </ul>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block group-focus-within:block z-50" role="region" aria-label="Serviços">
+              <div class="lm-glass rounded-xl border border-gray-100/50 shadow-xl shadow-black/5 py-2 w-56">
+                {services.map((s) => (<a href={s.href} class="block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 transition-all">{s.label}</a>))}
+              </div>
             </div>
           </li>
-          <li><a href="/#planos" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Planos</a></li>
-          <li><a href="/blog" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Blog</a></li>
-          <li><a href="/bairros" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Regiões</a></li>
-          <li><a href="/contato" class="lm-nav-link text-white hover:text-lm-pink transition-colors">Contato</a></li>
+          <li><a href="/blog" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Blog</a></li>
+          <li><a href="/bairros" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Regiões</a></li>
+          <li><a href="/contato" class="ml-2 bg-lm-pink text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-opacity-90 transition-all hover:shadow-lg hover:shadow-lm-pink/25">Contato</a></li>
         </ul>
       </nav>
     </div>
-
-    <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20">
-      <ul class="flex flex-col gap-4 text-sm font-medium uppercase tracking-wide pt-4 px-2">
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/">Home</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/como-funciona">Como Funciona</a></li>
-        <li>
-          <button id="mobile-services-btn" class="flex justify-between w-full text-left text-white hover:text-lm-pink transition-colors py-2 uppercase font-medium items-center" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">
-            Serviços
-            <svg id="services-chevron" class="w-4 h-4 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <ul id="mobile-services-submenu" class="hidden mt-2 ml-4 flex flex-col gap-3 border-l-2 border-lm-pink/30 pl-4 py-2">
-            {services.map((s) => (
-              <li><a href={s.href} class="mobile-link block text-gray-300 hover:text-lm-pink">{s.label}</a></li>
-            ))}
-          </ul>
-        </li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/#planos">Planos</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/blog">Blog</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/bairros">Regiões</a></li>
-        <li><a class="mobile-link block text-white hover:text-lm-pink transition-colors py-2" href="/contato">Contato</a></li>
-      </ul>
-    </nav>
   </div>
+  <nav id="mobile-menu" class="hidden md:hidden container mx-auto px-4 sm:px-6 lg:px-8 mt-2">
+    <div class="lm-glass rounded-2xl border border-white/20 shadow-lg py-4 px-6">
+      <ul class="flex flex-col gap-1">
+        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/">Home</a></li>
+        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/como-funciona">Como Funciona</a></li>
+        <li><button id="mobile-services-btn" class="flex justify-between w-full px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all items-center cursor-pointer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">Serviços<svg id="services-chevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button></li>
+        <ul id="mobile-services-submenu" class="hidden ml-4 flex flex-col gap-1 border-l-2 border-lm-pink/20 pl-4">
+          {services.map((s) => (<li><a href={s.href} class="mobile-link block px-4 py-2 text-sm text-gray-600 hover:text-lm-pink rounded-lg transition-all">{s.label}</a></li>))}
+        </ul>
+        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/blog">Blog</a></li>
+        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/bairros">Regiões</a></li>
+        <li><a class="mobile-link block px-4 py-2.5 text-sm text-lm-pink font-bold hover:bg-lm-pink/5 rounded-lg transition-all" href="/contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
-
-<style>
-  @supports (animation-timeline: scroll()) {
-    header { animation: lm-header-morph linear forwards; animation-timeline: scroll(root); animation-range: 0 150px; }
-    [data-purpose="logo-container"] img { animation: lm-logo-shrink linear forwards; animation-timeline: scroll(root); animation-range: 0 150px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    header, [data-purpose="logo-container"] img { animation: none !important; }
-  }
-</style>
 
 <script>
   const header = document.getElementById('lm-header');
-  const navLinks = document.querySelectorAll('.lm-nav-link');
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconBars = document.getElementById('menu-icon-bars');
@@ -102,17 +74,9 @@ const services = [
 
   function handleScroll() {
     const y = window.scrollY;
-    if (y > 20) {
-      header.classList.remove('bg-transparent', 'py-4');
-      header.classList.add('bg-white/85', 'backdrop-blur-md', 'py-2', 'shadow-sm');
-      navLinks.forEach(el => { el.classList.remove('text-white'); el.classList.add('text-gray-700'); });
-    } else {
-      header.classList.add('bg-transparent', 'py-4');
-      header.classList.remove('bg-white/85', 'backdrop-blur-md', 'py-2', 'shadow-sm');
-      navLinks.forEach(el => { el.classList.remove('text-gray-700'); el.classList.add('text-white'); });
-    }
+    if (y > 20) { header.classList.add('shadow-sm'); header.querySelector('.lm-glass')?.classList.add('bg-white/90'); }
+    else { header.classList.remove('shadow-sm'); header.querySelector('.lm-glass')?.classList.remove('bg-white/90'); }
   }
-
   window.addEventListener('scroll', handleScroll, { passive: true });
 
   function toggleMobileMenu(open) {
@@ -123,7 +87,6 @@ const services = [
     mobileBtn?.setAttribute('aria-expanded', String(!!isOpen));
     mobileBtn?.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
-
   function toggleMobileSubmenu(open) {
     const isOpen = open ?? servicesSubmenu?.classList.contains('hidden');
     servicesSubmenu?.classList.toggle('hidden', !isOpen);
@@ -131,11 +94,9 @@ const services = [
     servicesChevron?.classList.toggle('rotate-180', !!isOpen);
     servicesBtn?.setAttribute('aria-expanded', String(!!isOpen));
   }
-
   mobileBtn?.addEventListener('click', () => toggleMobileMenu());
   servicesBtn?.addEventListener('click', () => toggleMobileSubmenu());
   mobileLinks.forEach((link) => link.addEventListener('click', () => toggleMobileMenu(false)));
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (mobileMenu && !mobileMenu.classList.contains('hidden')) { toggleMobileMenu(false); mobileBtn?.focus(); }

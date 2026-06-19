@@ -1,36 +1,38 @@
 ---
 const neighborhoods = [
-  { name: "Tristeza", desc: "Bairro tradicional da Zona Sul", services: ["Fisioterapia Ortopédica", "Fisioterapia Domiciliar", "RPG"], href: "/bairros/tristeza" },
-  { name: "Cristal", desc: "Próximo ao Shopping Zona Sul", services: ["Fisioterapia Ortopédica", "Fisioterapia Pós-Operatória", "Pilates"], href: "/bairros/cristal" },
-  { name: "Vila Assunção", desc: "Bairro nobre e arborizado", services: ["Fisioterapia Ortopédica", "RPG", "Fisioterapia Domiciliar"], href: "/bairros/vila-assuncao" },
-  { name: "Cavalhada", desc: "Próximo ao BarraShoppingSul", services: ["Fisioterapia Pós-Operatória", "Fisioterapia Domiciliar", "RPG"], href: "/bairros/cavalhada" },
+  { name: "Tristeza", desc: "Bairro tradicional da Zona Sul", services: ["Fisioterapia", "RPG", "Domiciliar"], href: "/bairros/tristeza", img: "" },
+  { name: "Cristal", desc: "Próximo ao Shopping Zona Sul", services: ["Ortopédica", "Pós-OP", "Pilates"], href: "/bairros/cristal", img: "" },
+  { name: "Vila Assunção", desc: "Bairro nobre e arborizado", services: ["Ortopédica", "RPG", "Domiciliar"], href: "/bairros/vila-assuncao", img: "" },
+  { name: "Cavalhada", desc: "Próximo ao BarraShoppingSul", services: ["Pós-OP", "Domiciliar", "RPG"], href: "/bairros/cavalhada", img: "" },
 ]
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de mais informações sobre a clínica."
 ---
 
-<section class="bg-lm-beige text-black py-20 px-6 md:px-12">
+<section class="py-24 px-6 bg-white text-black lm-reveal">
   <div class="max-w-7xl mx-auto">
-    <div class="mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Atendemos na Zona Sul</h2>
-      <p class="text-xl opacity-70">Encontre o bairro mais próximo de você.</p>
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.2em] mb-4 block">Regiões</span>
+        <h2 class="text-[32px] md:text-[48px] font-serif font-bold tracking-tight">Atendemos na<br /><span class="text-lm-pink">Zona Sul</span></h2>
+      </div>
+      <p class="text-gray-500 max-w-sm text-sm">Clínicas estrategicamente localizadas para atender você perto da sua casa.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {neighborhoods.map((n) => (
-        <a href={n.href} class="flex flex-col gap-4 p-8 bg-white border border-[#E5E5E5] rounded-xl hover:border-lm-pink hover:shadow-lg transition-all group">
-          <div>
+        <a href={n.href} class="group relative bg-lm-beige rounded-2xl p-8 lm-card overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-lm-pink/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+          <div class="relative z-10">
             <h4 class="text-xl font-bold mb-1 group-hover:text-lm-pink transition-colors">{n.name}</h4>
-            <span class="text-xs font-bold uppercase tracking-wider text-black/50">{n.desc}</span>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            {n.services.map(s => (
-              <span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-lm-beige rounded-full font-medium">{s}</span>
-            ))}
+            <span class="text-xs font-medium uppercase tracking-wider text-gray-400">{n.desc}</span>
+            <div class="flex flex-wrap gap-2 mt-6">
+              {n.services.map(s => (<span class="text-[11px] uppercase tracking-wider px-3 py-1.5 bg-white rounded-full font-medium text-gray-600">{s}</span>))}
+            </div>
           </div>
         </a>
       ))}
     </div>
     <div class="text-center mt-12">
-      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex bg-black text-white px-8 py-4 rounded-full font-bold text-base hover:bg-black/90 transition-colors uppercase tracking-wide">AGENDE SUA AVALIAÇÃO</a>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex bg-lm-charcoal text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider">Agende sua avaliação</a>
     </div>
   </div>
 </section>

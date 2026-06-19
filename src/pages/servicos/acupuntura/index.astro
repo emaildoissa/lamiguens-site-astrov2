@@ -1,28 +1,198 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
-const neighborhoods = [
-  { name: 'Tristeza', href: '/bairros/tristeza' }, { name: 'Cristal', href: '/bairros/cristal' },
-  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' }, { name: 'Cavalhada', href: '/bairros/cavalhada' },
-  { name: 'Ipanema', href: '/bairros/ipanema' },
-]
-const faqs = [
-  { q: 'A acupuntura dói?', a: 'É minimamente invasiva. A maioria dos pacientes sente apenas um leve formigamento ou pressão no local da agulha.' },
-  { q: 'Quantas sessões são necessárias?', a: 'Geralmente de 6 a 12 sessões, dependendo da condição tratada. Os efeitos costumam ser cumulativos.' },
-  { q: 'Acupuntura trata quais condições?', a: 'Dores crônicas, enxaqueca, ansiedade, estresse, problemas digestivos, insônia, dores articulares e muito mais.' },
-  { q: 'Preciso de encaminhamento médico?', a: 'Não. Você pode agendar diretamente conosco para uma avaliação inicial.' },
-]
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre acupuntura."
+
+const indications = [
+  { name: "Dores crônicas (costas, joelho, ombro)", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Enxaqueca e cefaleia tensional", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+  { name: "Ansiedade e estresse", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { name: "Insônia e distúrbios do sono", icon: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" },
+  { name: "Problemas digestivos", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { name: "Alergias e sinusite", icon: "M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0" },
+  { name: "Dores menstruais", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { name: "Fortalecimento imunológico", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+]
+
+const process = [
+  { num: "01", title: "Avaliação energética", desc: "Diagnóstico baseado na medicina tradicional chinesa para identificar desequilíbrios no corpo." },
+  { num: "02", title: "Aplicação das agulhas", desc: "Inserção de agulhas finíssimas em pontos estratégicos para restaurar o fluxo de energia vital." },
+  { num: "03", title: "Acompanhamento", desc: "Sessões regulares com ajustes conforme sua evolução e resposta ao tratamento." },
+]
+
+const neighborhoods = [
+  { name: "Tristeza", href: "/bairros/tristeza" }, { name: "Cristal", href: "/bairros/cristal" },
+  { name: "Vila Assunção", href: "/bairros/vila-assuncao" }, { name: "Cavalhada", href: "/bairros/cavalhada" },
+  { name: "Ipanema", href: "/bairros/ipanema" },
+]
+
+const faqs = [
+  { q: "A acupuntura dói?", a: "É minimamente invasiva. A maioria dos pacientes sente apenas um leve formigamento ou pressão no local da agulha." },
+  { q: "Quantas sessões são necessárias?", a: "Geralmente de 6 a 12 sessões, dependendo da condição tratada. Os efeitos costumam ser cumulativos." },
+  { q: "Acupuntura trata quais condições?", a: "Dores crônicas, enxaqueca, ansiedade, estresse, problemas digestivos, insônia, dores articulares e muito mais." },
+  { q: "Preciso de encaminhamento médico?", a: "Não. Você pode agendar diretamente conosco para uma avaliação inicial." },
+]
 ---
+
 <Layout title="Acupuntura na Zona Sul de Porto Alegre" description="Acupuntura na Zona Sul de Porto Alegre. Tratamento natural para dores, estresse e ansiedade com profissionais qualificados.">
-  <section class="py-20 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h1 class="text-4xl md:text-5xl font-bold mb-6">Acupuntura na Zona Sul de Porto Alegre</h1><p class="text-lg text-gray-600 mb-8 max-w-2xl">Tratamento milenar chinês para alívio de dores, estresse e promoção do bem-estar.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Indicações da acupuntura</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">{['Dores crônicas (costas, joelho, ombro)', 'Enxaqueca e cefaleia tensional', 'Ansiedade e estresse', 'Insônia e distúrbios do sono', 'Problemas digestivos', 'Alergias e sinusite', 'Dores menstruais', 'Fortalecimento do sistema imunológico'].map(item => (<div class="flex items-center gap-3"><svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-base">{item}</span></div>))}</div></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Como funciona</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8">{[{ step: '1', title: 'Avaliação energética', desc: 'Diagnóstico baseado na medicina tradicional chinesa para identificar desequilíbrios.' },{ step: '2', title: 'Aplicação das agulhas', desc: 'Inserção de agulhas finíssimas em pontos estratégicos para restaurar o fluxo de energia.' },{ step: '3', title: 'Acompanhamento', desc: 'Sessões regulares com ajustes conforme sua evolução e resposta ao tratamento.' }].map(item => (<div class="text-center p-6"><span class="text-4xl font-bold text-lm-gold block mb-4">{item.step}</span><h3 class="text-lg font-bold mb-2">{item.title}</h3><p class="text-gray-600 text-sm">{item.desc}</p></div>))}</div></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Atendemos neste serviço em:</h2><div class="flex flex-wrap gap-4">{neighborhoods.map(n => (<a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>))}</div></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2><div class="space-y-4">{faqs.map(faq => (<details class="group border border-gray-200 rounded-lg"><summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div></details>))}</div></div></section>
-  <section class="py-16 px-6 text-center bg-black text-white"><h2 class="text-2xl md:text-3xl font-bold mb-6">Experimente a acupuntura</h2><p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende sua primeira sessão e descubra os benefícios da acupuntura para sua saúde.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a></section>
+  <section class="relative min-h-[75vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-lm-pink/5 rounded-full blur-[150px] pointer-events-none" />
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lm-gold/5 rounded-full blur-[100px] translate-y-1/4 pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Serviço</span>
+        </div>
+        <h1 class="text-[40px] md:text-[64px] lg:text-[80px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Acupuntura</h1>
+        <p class="text-base md:text-lg text-white/40 mt-6 max-w-xl lm-hero-sub">Tratamento milenar chinês para alívio de dores, estresse e promoção do bem-estar. Na Zona Sul de Porto Alegre.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-10 lm-hero-cta">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+            Agendar Sessão
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#faq" class="text-sm text-white/30 hover:text-white/60 transition-colors">Dúvidas frequentes →</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-8 mt-20 max-w-2xl border-t border-white/5 pt-10">
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">8</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Indicações</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">5</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Bairros atendidos</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">6-12</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Sessões estimadas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Indicações</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Indicações da<br class="hidden md:block" />acupuntura</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">A acupuntura trata o equilíbrio do corpo como um todo, aliviando sintomas físicos e emocionais.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        {indications.map((c) => (
+          <div class="group bg-white rounded-xl px-5 py-5 lm-card border border-gray-100/80 flex items-center gap-3 hover:border-lm-pink/20">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-lm-pink/5 flex items-center justify-center group-hover:bg-lm-pink/10 transition-colors">
+              <svg class="w-4 h-4 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={c.icon}/></svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-lm-pink transition-colors">{c.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white text-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Metodologia</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Como funciona</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Um tratamento milenar que busca restaurar o equilíbrio energético do corpo.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {process.map((step, idx) => (
+          <div class="relative p-8 rounded-2xl border border-gray-100 bg-lm-cream/50 lm-card hover:border-lm-pink/10">
+            <span class="text-[48px] md:text-[64px] font-serif font-bold text-lm-pink/10 leading-none block mb-4">{step.num}</span>
+            <h3 class="text-xl font-bold mb-3">{step.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+            {idx < process.length - 1 && (
+              <div class="hidden md:block absolute top-1/2 -right-3 text-lm-pink/20">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-lm-beige text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Regiões</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Atendemos<br class="hidden md:block" />na Zona Sul</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Clínicas próximas da sua casa. Atendimento presencial em cinco bairros.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        {neighborhoods.map((n) => (
+          <a href={n.href} class="group relative bg-white rounded-2xl p-7 lm-card border border-gray-100/80 overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-lm-pink/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+            <div class="relative z-10">
+              <h4 class="text-lg font-bold mb-1 group-hover:text-lm-pink transition-colors">{n.name}</h4>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Zona Sul</span>
+              <div class="mt-4 flex items-center gap-1 text-lm-pink text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Ver</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 px-6 bg-white text-black">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center gap-3 mb-4 justify-center">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">FAQ</span>
+          <span class="h-px w-8 bg-lm-pink" />
+        </div>
+        <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Dúvidas frequentes</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((faq, idx) => (
+          <details class="group rounded-xl border border-gray-100 overflow-hidden transition-all open:border-lm-pink/20 open:shadow-sm">
+            <summary class="flex justify-between items-center cursor-pointer px-6 py-5 font-medium text-base text-gray-700 hover:text-lm-pink transition-colors">
+              <span class="flex items-center gap-4">
+                <span class="w-6 h-6 rounded-full bg-lm-pink/5 flex items-center justify-center text-xs font-bold text-lm-pink shrink-0">{String(idx + 1).padStart(2, "0")}</span>
+                {faq.q}
+              </span>
+              <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pl-16 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Experimente a<br />acupuntura</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Agende sua primeira sessão e descubra os benefícios da acupuntura para sua saúde.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Agendar Sessão
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
 </Layout>

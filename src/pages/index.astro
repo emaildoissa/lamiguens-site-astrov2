@@ -3,7 +3,6 @@ import Layout from '@/layouts/Layout.astro'
 import HeroSection from '@/components/HeroSection.astro'
 import Marquee from '@/components/Marquee.astro'
 import FirstSession from '@/components/FirstSession.astro'
-import PressSlider from '@/components/PressSlider.astro'
 import Method from '@/components/Method.astro'
 import Locations from '@/components/Locations.astro'
 import Testimonials from '@/components/Testimonials.astro'
@@ -14,7 +13,29 @@ import BottomCTA from '@/components/BottomCTA.astro'
   <HeroSection />
   <Marquee />
   <FirstSession />
-  <PressSlider />
+  <!-- SOCIAL PROOF -->
+  <section class="py-20 px-6 bg-white text-black lm-reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-3 mb-12 justify-center">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Números</span>
+        <span class="h-px w-8 bg-lm-pink" />
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        {[
+          { num: '500+', label: 'Pacientes atendidos' },
+          { num: '10', label: 'Bairros na Zona Sul' },
+          { num: '8+', label: 'Anos de experiência' },
+          { num: '98%', label: 'Satisfação' },
+        ].map(s => (
+          <div class="text-center">
+            <span class="text-[40px] md:text-[52px] font-serif font-bold text-lm-pink block leading-none">{s.num}</span>
+            <span class="text-xs text-gray-500 uppercase tracking-wider mt-3 block">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
   <Method />
   <Locations />
   <Testimonials />

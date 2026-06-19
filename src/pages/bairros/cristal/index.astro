@@ -1,59 +1,75 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
 const services = [
-  { name: 'Fisioterapia Ortopédica', href: '/servicos/fisioterapia-ortopedica' },
-  { name: 'Fisioterapia Pós-Operatória', href: '/servicos/fisioterapia-pos-operatoria' },
-  { name: 'Fisioterapia Domiciliar', href: '/servicos/fisioterapia-domiciliar' },
-  { name: 'RPG', href: '/servicos/rpg' },
+  { name: "Fisioterapia Ortopédica", href: "/servicos/fisioterapia-ortopedica" },
+  { name: "Fisioterapia Pós-Operatória", href: "/servicos/fisioterapia-pos-operatoria" },
+  { name: "Fisioterapia Domiciliar", href: "/servicos/fisioterapia-domiciliar" },
+  { name: "RPG", href: "/servicos/rpg" },
+]
+const differentials = [
+  "Atendimento individualizado", "Profissionais especializados",
+  "Tratamento baseado em evidências", "Estrutura completa e acolhedora",
+  "Horários flexíveis", "Próximo da sua casa",
 ]
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia no Cristal."
 ---
-
 <Layout title="Fisioterapia no Cristal em Porto Alegre" description="Fisioterapia no bairro Cristal, Zona Sul de Porto Alegre. Atendimento próximo ao Shopping Zona Sul e BarraShoppingSul. Agende sua avaliação.">
-  <section class="py-20 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia no Cristal em Porto Alegre</h1>
-      <p class="text-lg text-gray-600 mb-8 max-w-2xl">Atendimento de fisioterapia no bairro Cristal, Zona Sul de Porto Alegre. Fácil acesso e tratamento humanizado.</p>
-      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
-    </div>
-  </section>
-
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-lm-beige text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Serviços disponíveis no Cristal</h2>
-      <div class="flex flex-wrap gap-4">
-        {services.map(s => (
-          <a href={s.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{s.name}</a>
-        ))}
+  <section class="relative min-h-[70vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-lm-pink/5 rounded-full blur-[150px] pointer-events-none" />
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lm-gold/5 rounded-full blur-[100px] translate-y-1/4 pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 lm-hero-sub"><span class="h-px w-8 bg-lm-pink" /><span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Bairro</span></div>
+        <h1 class="text-[40px] md:text-[64px] lg:text-[80px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Fisioterapia<br />no Cristal</h1>
+        <p class="text-base md:text-lg text-white/40 mt-6 max-w-xl lm-hero-sub">Atendimento de fisioterapia no bairro Cristal, Zona Sul de Porto Alegre. Fácil acesso e tratamento humanizado.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-10 lm-hero-cta">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+            Agendar Avaliação<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="/servicos" class="text-sm text-white/30 hover:text-white/60 transition-colors">Ver todos os serviços →</a>
+        </div>
       </div>
-      <p class="text-gray-600 mt-8 text-sm">O bairro Cristal é uma região central da Zona Sul de Porto Alegre, com fácil acesso pelas avenidas Icaraí e Diário de Notícias. Estamos próximos ao Shopping Zona Sul e BarraShoppingSul, facilitando sua visita.</p>
-    </div>
-  </section>
-
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Por que escolher nossa clínica?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {['Atendimento individualizado', 'Profissionais especializados', 'Tratamento baseado em evidências', 'Estrutura completa e acolhedora', 'Horários flexíveis', 'Próximo da sua casa'].map(item => (
-          <div class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-base">{item}</span>
-          </div>
-        ))}
+      <div class="grid grid-cols-3 gap-8 mt-20 max-w-2xl border-t border-white/5 pt-10">
+        <div><span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">4</span><span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Serviços</span></div>
+        <div><span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">Zona</span><span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Sul</span></div>
+        <div><span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">100%</span><span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Atendimento indiv.</span></div>
       </div>
     </div>
   </section>
 
-  <GoldDivider />
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div><div class="flex items-center gap-3 mb-4"><span class="h-px w-8 bg-lm-pink" /><span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Serviços</span></div><h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Serviços disponíveis<br class="hidden md:block" />no Cristal</h2></div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">O bairro Cristal é uma região central da Zona Sul, com fácil acesso pelas avenidas Icaraí e Diário de Notícias.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        {services.map(s => (<a href={s.href} class="group bg-white rounded-xl px-5 py-6 lm-card border border-gray-100/80 flex items-center justify-center text-center hover:border-lm-pink/20 hover:bg-lm-pink/5"><span class="text-sm font-medium text-gray-700 group-hover:text-lm-pink transition-colors">{s.name}</span></a>))}
+      </div>
+    </div>
+  </section>
 
-  <section class="py-16 px-6 text-center bg-black text-white">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6">Agende sua avaliação no Cristal</h2>
-    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Entre em contato e marque sua consulta. Cuidamos de você perto da sua casa.</p>
-    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  <section class="py-24 px-6 bg-white text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div><div class="flex items-center gap-3 mb-4"><span class="h-px w-8 bg-lm-pink" /><span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Diferenciais</span></div><h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Por que escolher<br class="hidden md:block" />nossa clínica?</h2></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {differentials.map(item => (<div class="flex items-center gap-3 p-4 rounded-xl bg-lm-cream/50"><svg class="w-5 h-5 text-lm-pink shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm font-medium">{item}</span></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Agende sua avaliação<br />no Cristal</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Entre em contato e marque sua consulta. Cuidamos de você perto da sua casa.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Fale pelo WhatsApp<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
   </section>
 </Layout>

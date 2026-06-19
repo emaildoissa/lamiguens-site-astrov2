@@ -1,98 +1,198 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
-const neighborhoods = [
-  { name: 'Tristeza', href: '/bairros/tristeza' },
-  { name: 'Cristal', href: '/bairros/cristal' },
-  { name: 'Vila Assunção', href: '/bairros/vila-assuncao' },
-  { name: 'Cavalhada', href: '/bairros/cavalhada' },
-]
-const faqs = [
-  { q: 'Quem pode se beneficiar da fisioterapia domiciliar?', a: 'Pacientes com mobilidade reduzida, idosos, pós-operatórios restritos, acamados e pessoas sem transporte para a clínica.' },
-  { q: 'Vocês atendem em quais bairros?', a: 'Atendemos em toda a Zona Sul de Porto Alegre: Tristeza, Cristal, Vila Assunção, Cavalhada, Ipanema, Guarujá e região.' },
-  { q: 'Precisa de equipamento especial?', a: 'Levamos todo o material necessário para a sessão. Você só precisa de um espaço mínimo para o atendimento.' },
-  { q: 'O atendimento domiciliar tem o mesmo valor?', a: 'O valor pode variar devido ao deslocamento. Consulte nossos preços pelo WhatsApp.' },
-]
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia domiciliar."
+
+const indications = [
+  { name: "Idosos com mobilidade reduzida", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Pós-operatório imediato", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+  { name: "Acamados e cadeirantes", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { name: "Pacientes sem transporte", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+  { name: "Doenças neurológicas", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { name: "Fraturas em consolidação", icon: "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662" },
+  { name: "Cuidados paliativos", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { name: "Limitação física temporária", icon: "M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+]
+
+const advantages = [
+  { title: "Conforto", desc: "Atendimento no seu lar, sem estresse com deslocamento e em horário flexível.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+  { title: "Individualizado", desc: "Sessões exclusivas com foco total nas suas necessidades específicas, sem distrações.", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+  { title: "Familiar presente", desc: "Seus familiares podem acompanhar e aprender a auxiliar nos exercícios entre as sessões.", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+]
+
+const neighborhoods = [
+  { name: "Tristeza", href: "/bairros/tristeza" },
+  { name: "Cristal", href: "/bairros/cristal" },
+  { name: "Vila Assunção", href: "/bairros/vila-assuncao" },
+  { name: "Cavalhada", href: "/bairros/cavalhada" },
+  { name: "Ipanema", href: "/bairros/ipanema" },
+  { name: "Guarujá", href: "/bairros/guaruja" },
+]
+
+const faqs = [
+  { q: "Quem pode se beneficiar da fisioterapia domiciliar?", a: "Pacientes com mobilidade reduzida, idosos, pós-operatórios restritos, acamados e pessoas sem transporte para a clínica." },
+  { q: "Vocês atendem em quais bairros?", a: "Atendemos em toda a Zona Sul de Porto Alegre: Tristeza, Cristal, Vila Assunção, Cavalhada, Ipanema, Guarujá e região." },
+  { q: "Precisa de equipamento especial?", a: "Levamos todo o material necessário para a sessão. Você só precisa de um espaço mínimo para o atendimento." },
+  { q: "O atendimento domiciliar tem o mesmo valor?", a: "O valor pode variar devido ao deslocamento. Consulte nossos preços pelo WhatsApp." },
+]
 ---
 
 <Layout title="Fisioterapia Domiciliar na Zona Sul de Porto Alegre" description="Fisioterapia no conforto da sua casa na Zona Sul de Porto Alegre. Atendimento personalizado para quem tem dificuldade de locomoção.">
-  <section class="py-20 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia Domiciliar na Zona Sul de Porto Alegre</h1>
-      <p class="text-lg text-gray-600 mb-8 max-w-2xl">Atendimento fisioterapêutico no conforto da sua casa, com a mesma qualidade da clínica.</p>
-      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+  <section class="relative min-h-[75vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-lm-pink/5 rounded-full blur-[150px] pointer-events-none" />
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lm-gold/5 rounded-full blur-[100px] translate-y-1/4 pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Serviço</span>
+        </div>
+        <h1 class="text-[40px] md:text-[64px] lg:text-[80px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Fisioterapia<br />Domiciliar</h1>
+        <p class="text-base md:text-lg text-white/40 mt-6 max-w-xl lm-hero-sub">Atendimento fisioterapêutico no conforto da sua casa, com a mesma qualidade da clínica. Na Zona Sul de Porto Alegre.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-10 lm-hero-cta">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+            Solicitar Visita
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#faq" class="text-sm text-white/30 hover:text-white/60 transition-colors">Dúvidas frequentes →</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-8 mt-20 max-w-2xl border-t border-white/5 pt-10">
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">8</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Perfis atendidos</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">6</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Bairros atendidos</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">100%</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Equipamento levado</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-lm-beige text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8">Para quem é indicado</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {['Idosos com mobilidade reduzida', 'Pós-operatório imediato', 'Acamados e cadeirantes', 'Pacientes sem transporte', 'Doenças neurológicas', 'Fraturas em consolidação', 'Cuidados paliativos', 'Limitação física temporária'].map(item => (
-          <div class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-base">{item}</span>
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Indicações</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Para quem é<br class="hidden md:block" />indicado?</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">A fisioterapia domiciliar é ideal para quem não pode ou tem dificuldade de ir até a clínica.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        {indications.map((c) => (
+          <div class="group bg-white rounded-xl px-5 py-5 lm-card border border-gray-100/80 flex items-center gap-3 hover:border-lm-pink/20">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-lm-pink/5 flex items-center justify-center group-hover:bg-lm-pink/10 transition-colors">
+              <svg class="w-4 h-4 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={c.icon}/></svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-lm-pink transition-colors">{c.name}</span>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Vantagens do atendimento domiciliar</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { title: 'Conforto', desc: 'Atendimento no seu lar, sem estresse com deslocamento e em horário flexível.' },
-          { title: 'Individualizado', desc: 'Sessões exclusivas com foco total nas suas necessidades específicas.' },
-          { title: 'Familiar presente', desc: 'Seus familiares podem acompanhar e aprender a auxiliar nos exercícios.' },
-        ].map(item => (
-          <div class="text-center p-6 border border-gray-200 rounded-lg">
-            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
-            <p class="text-gray-600 text-sm">{item.desc}</p>
+  <section class="py-24 px-6 bg-white text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Vantagens</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Por que escolher<br class="hidden md:block" />o atendimento em casa?</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">A clínica vai até você — com toda a estrutura e cuidado que você merece.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {advantages.map((a) => (
+          <div class="bg-lm-cream/80 rounded-2xl p-10 lm-card border border-gray-100/80 hover:border-lm-pink/10">
+            <div class="w-12 h-12 rounded-full bg-lm-pink/5 flex items-center justify-center mb-6">
+              <svg class="w-5 h-5 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={a.icon}/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{a.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{a.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-lm-beige text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Áreas de atendimento:</h2>
-      <div class="flex flex-wrap gap-4">
-        {neighborhoods.map(n => (
-          <a href={n.href} class="bg-white px-5 py-3 rounded-full font-medium text-sm hover:bg-lm-pink hover:text-white transition-colors border border-gray-200">{n.name}</a>
+  <section class="py-24 px-6 bg-lm-beige text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Regiões</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Áreas de<br class="hidden md:block" />atendimento</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Atendemos em toda a Zona Sul de Porto Alegre. Consulte se atendemos seu bairro.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {neighborhoods.map((n) => (
+          <a href={n.href} class="group relative bg-white rounded-2xl p-7 lm-card border border-gray-100/80 overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-lm-pink/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+            <div class="relative z-10">
+              <h4 class="text-lg font-bold mb-1 group-hover:text-lm-pink transition-colors">{n.name}</h4>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Zona Sul</span>
+              <div class="mt-4 flex items-center gap-1 text-lm-pink text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Ver serviços</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </div>
+            </div>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <GoldDivider />
-
-  <section class="py-16 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8">Dúvidas frequentes</h2>
-      <div class="space-y-4">
-        {faqs.map(faq => (
-          <details class="group border border-gray-200 rounded-lg">
-            <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-base hover:bg-gray-50">{faq.q}<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-            <div class="px-4 pb-4 text-gray-600 text-sm">{faq.a}</div>
+  <section id="faq" class="py-24 px-6 bg-white text-black">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center gap-3 mb-4 justify-center">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">FAQ</span>
+          <span class="h-px w-8 bg-lm-pink" />
+        </div>
+        <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Dúvidas frequentes</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((faq, idx) => (
+          <details class="group rounded-xl border border-gray-100 overflow-hidden transition-all open:border-lm-pink/20 open:shadow-sm">
+            <summary class="flex justify-between items-center cursor-pointer px-6 py-5 font-medium text-base text-gray-700 hover:text-lm-pink transition-colors">
+              <span class="flex items-center gap-4">
+                <span class="w-6 h-6 rounded-full bg-lm-pink/5 flex items-center justify-center text-xs font-bold text-lm-pink shrink-0">{String(idx + 1).padStart(2, "0")}</span>
+                {faq.q}
+              </span>
+              <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pl-16 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
           </details>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 px-6 text-center bg-black text-white">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6">Solicite uma visita domiciliar</h2>
-    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Entre em contato e agende uma avaliação no conforto da sua casa.</p>
-    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Solicite uma<br />visita domiciliar</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Agende uma avaliação no conforto da sua casa. Sem compromisso.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Solicitar Visita
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
   </section>
 </Layout>

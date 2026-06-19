@@ -1,39 +1,40 @@
 ---
-const includes = [
-  "Avaliação completa do histórico de saúde",
-  "Testes ortopédicos e biomecânicos",
-  "Diagnóstico fisioterapêutico preciso",
-  "Plano de tratamento personalizado",
-  "Orientações para acelerar a recuperação",
-]
+const includes = ["Avaliação completa do histórico", "Testes ortopédicos e biomecânicos", "Diagnóstico fisioterapêutico", "Plano de tratamento personalizado", "Orientações para recuperação"]
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de agendar uma avaliação."
 ---
 
-<section class="py-20 px-6 bg-white text-black">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-    <div class="order-2 md:order-1 max-w-xl">
-      <p class="text-[24px] font-medium mb-4 leading-snug">Da avaliação completa ao plano de tratamento, sua primeira sessão é dedicada a entender a causa do problema.</p>
-      <div class="flex items-center gap-4 mb-6">
-        <h2 class="text-[48px] font-bold leading-tight">Sua Primeira Sessão</h2>
-        <span class="text-[12px] px-3 py-1 border border-black rounded-full font-bold shrink-0 uppercase">60 MIN</span>
+<section class="py-24 px-6 bg-[#FCFAF7] text-black lm-reveal">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div class="relative order-2 lg:order-1">
+        <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+          <img src="/images/assets/67e7f478ad9a5c8ee0b9027e_first-myo-session.avif" alt="Sua primeira sessão de fisioterapia" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 bg-lm-pink/10 rounded-full blur-3xl pointer-events-none" />
       </div>
-      <p class="text-[16px] leading-relaxed text-[#333333] mb-8">Sua primeira sessão é dedicada a entender as necessidades do seu corpo. Você será atendido por um profissional qualificado que vai ouvir, avaliar e criar um plano personalizado para ajudar você a se mover e se sentir melhor.</p>
-      <h3 class="text-base font-bold mb-4 uppercase tracking-wide">Sua avaliação inclui:</h3>
-      <ul class="space-y-4 mb-8">
-        {includes.map((item) => (
-          <li class="flex items-center gap-3 text-base font-bold">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-lm-pink"><polyline points="20 6 9 17 4 12"/></svg>
-            {item}
-          </li>
-        ))}
-      </ul>
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8">
-        <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex bg-black text-white px-8 py-6 h-auto rounded-full font-bold text-base hover:bg-black/90 transition-colors uppercase tracking-wide">AGENDE SUA AVALIAÇÃO</a>
-      </div>
-    </div>
-    <div class="order-1 md:order-2 w-full">
-      <div class="relative aspect-[1.1/1] md:aspect-[0.9/1] lg:aspect-[1.1/1] rounded-3xl overflow-hidden shadow-2xl">
-        <img src="/images/assets/67e7f478ad9a5c8ee0b9027e_first-myo-session.avif" alt="Sua primeira sessão de fisioterapia" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="order-1 lg:order-2 max-w-xl">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.2em] mb-4 block">Primeira consulta</span>
+        <h2 class="text-[40px] md:text-[56px] font-serif font-bold leading-[1.05] mb-6 tracking-tight">Sua Primeira<br /><span class="text-lm-pink">Sessão</span></h2>
+        <p class="text-base md:text-lg leading-relaxed text-gray-600 mb-8">
+          Sua primeira sessão é dedicada a entender as necessidades do seu corpo. Você será atendido por um profissional qualificado que vai ouvir, avaliar e criar um plano personalizado para ajudar você a se mover e se sentir melhor.
+        </p>
+        <div class="flex items-center gap-4 mb-8">
+          <span class="text-sm px-4 py-2 bg-lm-beige rounded-full font-medium text-gray-600">60 minutos</span>
+          <span class="text-sm px-4 py-2 bg-lm-beige rounded-full font-medium text-gray-600">Atendimento individual</span>
+        </div>
+        <h3 class="text-sm font-bold mb-4 uppercase tracking-wider text-gray-500">Sua avaliação inclui:</h3>
+        <ul class="space-y-3 mb-10">
+          {includes.map((item) => (
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <span class="w-6 h-6 rounded-full bg-lm-pink/10 flex items-center justify-center shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-lm-pink"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex bg-lm-charcoal text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-lm-charcoal/90 transition-all uppercase tracking-wider">AGENDE SUA AVALIAÇÃO</a>
       </div>
     </div>
   </div>

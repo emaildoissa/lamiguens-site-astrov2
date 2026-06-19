@@ -1,13 +1,159 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre fisioterapia para idosos."
+
+const benefits = [
+  { name: "Prevenção de quedas", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { name: "Melhora do equilíbrio", icon: "M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0" },
+  { name: "Fortalecimento muscular", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Alívio de dores articulares", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+  { name: "Melhora da mobilidade", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+  { name: "Independência nas AVDs", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+  { name: "Tratamento de osteoporose", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { name: "Reabilitação pós-fratura", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+]
+
+const differentials = [
+  { title: "Atendimento acolhedor", desc: "Profissionais pacientes e atenciosos, com experiência no trato com a terceira idade.", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+  { title: "Exercícios adaptados", desc: "Programas de exercícios adequados à capacidade e limitações de cada paciente idoso.", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+  { title: "Atendimento domiciliar", desc: "Opção de atendimento em casa para quem tem mobilidade reduzida ou dificuldade de locomoção.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+]
+
+const faqs = [
+  { q: "A fisioterapia para idosos é diferente da convencional?", a: "Sim. O foco está na prevenção de quedas, manutenção da independência e tratamento de condições comuns do envelhecimento, como osteoporose e artrose." },
+  { q: "Preciso de encaminhamento médico?", a: "Não é obrigatório, mas recomendamos o acompanhamento médico regular para alinhar o tratamento." },
+  { q: "Vocês atendem em domicílio?", a: "Sim, oferecemos atendimento domiciliar para idosos com mobilidade reduzida em toda a Zona Sul." },
+  { q: "O seguro cobre o tratamento?", a: "Atendemos particular e convênios. Consulte a lista de convênios pelo WhatsApp." },
+]
 ---
+
 <Layout title="Fisioterapia para Idosos na Zona Sul de Porto Alegre" description="Fisioterapia para idosos na Zona Sul de Porto Alegre. Tratamento especializado para a terceira idade com carinho e dedicação.">
-  <section class="py-20 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h1 class="text-4xl md:text-5xl font-bold mb-6">Fisioterapia para Idosos na Zona Sul de Porto Alegre</h1><p class="text-lg text-gray-600 mb-8 max-w-2xl">Atendimento fisioterapêutico especializado para a terceira idade, com foco em mobilidade, equilíbrio e qualidade de vida.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-lm-beige text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-8">Benefícios para a terceira idade</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">{['Prevenção de quedas', 'Melhora do equilíbrio', 'Fortalecimento muscular', 'Alívio de dores articulares', 'Melhora da mobilidade', 'Independência nas atividades diárias', 'Tratamento de osteoporose', 'Reabilitação pós-fratura'].map(item => (<div class="flex items-center gap-3"><svg class="w-5 h-5 text-lm-pink shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-base">{item}</span></div>))}</div></div></section>
-  <GoldDivider />
-  <section class="py-16 px-6 bg-white text-black"><div class="max-w-4xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-6">Diferenciais do atendimento</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8">{[{ title: 'Atendimento acolhedor', desc: 'Profissionais pacientes e atenciosos, com experiência no trato com a terceira idade.' },{ title: 'Exercícios adaptados', desc: 'Programas de exercícios adequados à capacidade e limitações de cada paciente.' },{ title: 'Atendimento domiciliar', desc: 'Opção de atendimento em casa para quem tem mobilidade reduzida.' }].map(item => (<div class="text-center p-6 border border-gray-200 rounded-lg"><h3 class="text-lg font-bold mb-2">{item.title}</h3><p class="text-gray-600 text-sm">{item.desc}</p></div>))}</div></div></section>
-  <section class="py-16 px-6 text-center bg-black text-white"><h2 class="text-2xl md:text-3xl font-bold mb-6">Qualidade de vida na melhor idade</h2><p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende uma avaliação e descubra como podemos ajudar você ou seu familiar a viver melhor.</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a></section>
+  <section class="relative min-h-[75vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-lm-pink/5 rounded-full blur-[150px] pointer-events-none" />
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lm-gold/5 rounded-full blur-[100px] translate-y-1/4 pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Serviço</span>
+        </div>
+        <h1 class="text-[40px] md:text-[64px] lg:text-[80px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Fisioterapia<br />para Idosos</h1>
+        <p class="text-base md:text-lg text-white/40 mt-6 max-w-xl lm-hero-sub">Atendimento fisioterapêutico especializado para a terceira idade, com foco em mobilidade, equilíbrio e qualidade de vida. Na Zona Sul de Porto Alegre.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-10 lm-hero-cta">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+            Agendar Avaliação
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#faq" class="text-sm text-white/30 hover:text-white/60 transition-colors">Dúvidas frequentes →</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-8 mt-20 max-w-2xl border-t border-white/5 pt-10">
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">8</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Benefícios</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">3</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Diferenciais</span>
+        </div>
+        <div>
+          <span class="text-[32px] md:text-[40px] font-serif font-bold text-lm-pink block leading-none">100%</span>
+          <span class="text-xs text-white/30 uppercase tracking-wider mt-2 block">Atendimento humanizado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Benefícios</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Benefícios para a<br class="hidden md:block" />terceira idade</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Mais do que tratar dores, a fisioterapia devolve autonomia e qualidade de vida.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        {benefits.map((b) => (
+          <div class="group bg-white rounded-xl px-5 py-5 lm-card border border-gray-100/80 flex items-center gap-3 hover:border-lm-pink/20">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-lm-pink/5 flex items-center justify-center group-hover:bg-lm-pink/10 transition-colors">
+              <svg class="w-4 h-4 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={b.icon}/></svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-lm-pink transition-colors">{b.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white text-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-lm-pink" />
+            <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Diferenciais</span>
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Diferenciais do<br class="hidden md:block" />atendimento</h2>
+        </div>
+        <p class="text-gray-500 max-w-xs text-sm leading-relaxed">Sabemos que cada idade exige um olhar especial. Nosso atendimento é pensado para você.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {differentials.map((d) => (
+          <div class="bg-lm-cream/80 rounded-2xl p-10 lm-card border border-gray-100/80 hover:border-lm-pink/10">
+            <div class="w-12 h-12 rounded-full bg-lm-pink/5 flex items-center justify-center mb-6">
+              <svg class="w-5 h-5 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={d.icon}/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{d.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 px-6 bg-lm-beige text-black">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center gap-3 mb-4 justify-center">
+          <span class="h-px w-8 bg-lm-pink" />
+          <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">FAQ</span>
+          <span class="h-px w-8 bg-lm-pink" />
+        </div>
+        <h2 class="text-[32px] md:text-[44px] font-serif font-bold tracking-tight">Dúvidas frequentes</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((faq, idx) => (
+          <details class="group rounded-xl border border-gray-100 overflow-hidden transition-all open:border-lm-pink/20 open:shadow-sm">
+            <summary class="flex justify-between items-center cursor-pointer px-6 py-5 font-medium text-base text-gray-700 hover:text-lm-pink transition-colors">
+              <span class="flex items-center gap-4">
+                <span class="w-6 h-6 rounded-full bg-lm-pink/5 flex items-center justify-center text-xs font-bold text-lm-pink shrink-0">{String(idx + 1).padStart(2, "0")}</span>
+                {faq.q}
+              </span>
+              <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pl-16 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Qualidade de vida<br />na melhor idade</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Agende uma avaliação e descubra como podemos ajudar você ou seu familiar a viver melhor.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Agendar Avaliação
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
 </Layout>

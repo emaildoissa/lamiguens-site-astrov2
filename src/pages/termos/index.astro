@@ -3,24 +3,35 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Termos de Uso | Fisioterapia Zona Sul Porto Alegre">
-  <section class="py-20 px-6 bg-white text-black">
+  <section class="relative min-h-[40vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full">
+      <h1 class="text-[40px] md:text-[60px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Termos de Uso</h1>
+      <p class="text-white/40 mt-6 max-w-xl lm-hero-sub text-base">Diretrizes para utilização do site e de nossos serviços.</p>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-lm-cream text-black lm-reveal">
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-8">Termos de Uso</h1>
-      <div class="prose prose-gray max-w-none space-y-6 text-gray-700">
-        <p>Ao utilizar este site e nossos serviços, você concorda com os termos descritos abaixo.</p>
-        <h2 class="text-xl font-bold text-black mt-8">1. Serviços</h2>
-        <p>Oferecemos serviços de fisioterapia, pilates, RPG e reabilitação. O agendamento e as condições de atendimento são combinados diretamente com o paciente.</p>
-        <h2 class="text-xl font-bold text-black mt-8">2. Agendamento</h2>
-        <p>As consultas devem ser agendadas previamente. Cancelamentos com menos de 24h de antecedência podem estar sujeitos a taxas.</p>
-        <h2 class="text-xl font-bold text-black mt-8">3. Responsabilidade</h2>
-        <p>O tratamento fisioterapêutico é baseado em avaliação individual. Resultados podem variar conforme o quadro clínico e adesão do paciente ao tratamento.</p>
-        <h2 class="text-xl font-bold text-black mt-8">4. Uso do site</h2>
-        <p>O conteúdo deste site é informativo e não substitui consulta presencial. Não nos responsabilizamos por decisões tomadas com base apenas nas informações aqui contidas.</p>
-        <h2 class="text-xl font-bold text-black mt-8">5. Propriedade intelectual</h2>
-        <p>Todo o conteúdo do site é protegido por direitos autorais. É proibida a reprodução sem autorização.</p>
-        <h2 class="text-xl font-bold text-black mt-8">6. Contato</h2>
-        <p>Para dúvidas sobre estes termos, entre em contato pelo WhatsApp (51) 99340-8269.</p>
-        <p class="text-sm text-gray-500 mt-12">Última atualização: junho de 2026.</p>
+      <div class="space-y-8">
+        <p class="text-gray-600 leading-relaxed">Ao utilizar este site e nossos serviços, você concorda com os termos descritos abaixo.</p>
+
+        {[
+          { title: '1. Serviços', content: 'Oferecemos serviços de fisioterapia, pilates, RPG e reabilitação. O agendamento e as condições de atendimento são combinados diretamente com o paciente.' },
+          { title: '2. Agendamento', content: 'As consultas devem ser agendadas previamente. Cancelamentos com menos de 24h de antecedência podem estar sujeitos a taxas.' },
+          { title: '3. Responsabilidade', content: 'O tratamento fisioterapêutico é baseado em avaliação individual. Resultados podem variar conforme o quadro clínico e adesão do paciente ao tratamento.' },
+          { title: '4. Uso do site', content: 'O conteúdo deste site é informativo e não substitui consulta presencial. Não nos responsabilizamos por decisões tomadas com base apenas nas informações aqui contidas.' },
+          { title: '5. Propriedade intelectual', content: 'Todo o conteúdo do site é protegido por direitos autorais. É proibida a reprodução sem autorização.' },
+          { title: '6. Contato', content: 'Para dúvidas sobre estes termos, entre em contato pelo WhatsApp (51) 99340-8269.' },
+        ].map(item => (
+          <div class="bg-white rounded-2xl p-8 lm-card border border-gray-100/80">
+            <h2 class="text-xl font-bold text-black mb-3">{item.title}</h2>
+            <p class="text-gray-600 leading-relaxed">{item.content}</p>
+          </div>
+        ))}
+
+        <p class="text-sm text-gray-500 pt-4">Última atualização: junho de 2026.</p>
       </div>
     </div>
   </section>

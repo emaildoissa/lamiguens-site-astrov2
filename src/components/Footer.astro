@@ -1,43 +1,50 @@
-<footer class="bg-lm-beige pt-10 pb-6 md:pt-16 md:pb-8 border-t border-gray-200">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-16">
-      <h4 class="text-lm-dark font-bold uppercase tracking-wider mb-2 md:mb-3 text-sm md:text-base">
-        Agende sua avaliação
-      </h4>
-      <p class="text-gray-500 text-xs md:text-sm mb-4 max-w-md mx-auto">
-        Cuidado humanizado e tratamento personalizado na Zona Sul de Porto Alegre.
-      </p>
-      <a
-        href="https://wa.me/555193408269"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-lm-pink text-white font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-full hover:bg-opacity-90 transition-all text-sm md:text-base uppercase tracking-wider"
-      >
-        Fale conosco
-      </a>
+<footer class="relative bg-lm-charcoal text-white pt-16 pb-8 overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h4 class="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-3">Fisio<span class="text-lm-pink">Zona</span>Sul</h4>
+      <p class="text-white/40 text-sm max-w-md mx-auto">Cuidado humanizado e tratamento personalizado na Zona Sul de Porto Alegre.</p>
     </div>
 
-    <hr class="border-gray-300 opacity-50 mb-8 md:mb-12" />
+    <hr class="border-white/5 mb-10" />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 items-center text-center">
-      <div class="order-2 md:order-1 flex flex-col items-center justify-center">
-        <img src="/images/logorecovery.png" alt="Fisio Recovery Logo" class="h-20 md:h-40 w-auto object-contain md:-translate-y-2" loading="lazy" />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
+      <div class="flex flex-col items-center md:items-start">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.2em] mb-4">Serviços</span>
+        <ul class="space-y-2">
+          {['Fisioterapia Ortopédica', 'Fisioterapia Pós-OP', 'Fisioterapia Domiciliar', 'RPG', 'Pilates Terapêutico'].map(s => (
+            <li><a href="/servicos" class="text-sm text-white/40 hover:text-white/80 transition-colors">{s}</a></li>
+          ))}
+        </ul>
       </div>
 
-      <div class="order-1 md:order-2 flex flex-col items-center justify-center">
-        <img src="/images/logo.png" alt="Logo Fisioterapia" class="h-20 md:h-32 w-auto" loading="lazy" />
+      <div class="flex flex-col items-center">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <span class="font-serif text-xl font-bold">Fisio<span class="text-lm-pink">Zona</span>Sul</span>
+        </a>
+        <p class="text-xs text-white/30 max-w-xs leading-relaxed">Fisioterapia, pilates e reabilitação na Zona Sul de Porto Alegre.</p>
       </div>
 
-      <div class="order-3 flex flex-col items-center md:items-end text-xs md:text-sm text-gray-500 justify-center mt-2 md:mt-0">
-        <p class="mb-1">Contato e informações</p>
-        <span class="text-lm-dark font-medium text-base md:text-lg">
-          www.suaclinica.com.br
-        </span>
+      <div class="flex flex-col items-center md:items-end">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.2em] mb-4">Contato</span>
+        <p class="text-sm text-white/40 mb-2">(51) 99340-8269</p>
+        <a href="https://wa.me/555193408269" target="_blank" rel="noopener noreferrer" class="text-sm text-lm-pink hover:text-white/80 transition-colors font-medium">Fale pelo WhatsApp</a>
+        <div class="flex flex-wrap justify-center md:justify-end gap-2 mt-4">
+          {['Tristeza', 'Cristal', 'Vila Assunção', 'Cavalhada'].map(b => (
+            <span class="text-[10px] text-white/20 uppercase tracking-wider">{b}</span>
+          ))}
+        </div>
       </div>
     </div>
 
-    <div class="text-center mt-10 md:mt-12 text-[10px] md:text-xs text-gray-500">
-      © 2026 Clínica de Fisioterapia. Todos os direitos reservados.
+    <hr class="border-white/5 my-8" />
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs text-white/20">
+      <p>© 2026 Clínica de Fisioterapia. Todos os direitos reservados.</p>
+      <div class="flex gap-6">
+        <a href="/privacidade" class="hover:text-white/40 transition-colors">Privacidade</a>
+        <a href="/termos" class="hover:text-white/40 transition-colors">Termos</a>
+      </div>
     </div>
   </div>
 </footer>

@@ -1,29 +1,26 @@
 ---
 const marqueeItems = [
-  "Fisioterapia Ortopédica",
-  "Pilates Terapêutico",
-  "RPG",
-  "Fisioterapia Esportiva",
-  "Fisioterapia Domiciliar",
-  "Reabilitação da Coluna",
-  "Neuromodulação",
-  "Acupuntura",
+  "Fisioterapia Ortopédica", "Pilates Terapêutico", "RPG", "Fisioterapia Esportiva",
+  "Fisioterapia Domiciliar", "Reabilitação da Coluna", "Neuromodulação", "Acupuntura",
+  "Fisioterapia Pós-Operatória", "Fisioterapia para Idosos",
 ]
 ---
 
-<section class="bg-black text-white py-4 overflow-hidden whitespace-nowrap flex border-y border-white/10">
-  <div class="flex gap-8 items-center animate-marquee shrink-0">
-    {marqueeItems.map((item) => (
-      <div class="flex items-center gap-8 shrink-0">
-        <span class="text-base font-bold uppercase tracking-[0.05em]">{item}</span>
-        <span class="w-1.5 h-1.5 bg-lm-pink rounded-full shrink-0" />
-      </div>
-    ))}
-    {marqueeItems.map((item) => (
-      <div class="flex items-center gap-8 shrink-0">
-        <span class="text-base font-bold uppercase tracking-[0.05em]">{item}</span>
-        <span class="w-1.5 h-1.5 bg-lm-pink rounded-full shrink-0" />
-      </div>
-    ))}
+<section class="relative bg-lm-charcoal text-white py-5 overflow-hidden border-t border-white/5">
+  <div class="flex whitespace-nowrap">
+    <div class="flex gap-12 items-center animate-marquee shrink-0">
+      {marqueeItems.map((item) => (
+        <div class="flex items-center gap-12 shrink-0">
+          <span class="text-sm font-bold uppercase tracking-[0.15em] text-white/80">{item}</span>
+          <span class="w-1 h-1 bg-lm-pink rounded-full shrink-0 opacity-60" />
+        </div>
+      ))}
+      {marqueeItems.map((item) => (
+        <div class="flex items-center gap-12 shrink-0">
+          <span class="text-sm font-bold uppercase tracking-[0.15em] text-white/80">{item}</span>
+          <span class="w-1 h-1 bg-lm-pink rounded-full shrink-0 opacity-60" />
+        </div>
+      ))}
+    </div>
   </div>
 </section>

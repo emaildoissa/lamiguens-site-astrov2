@@ -3,24 +3,35 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Política de Privacidade | Fisioterapia Zona Sul Porto Alegre">
-  <section class="py-20 px-6 bg-white text-black">
+  <section class="relative min-h-[40vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full">
+      <h1 class="text-[40px] md:text-[60px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Política de Privacidade</h1>
+      <p class="text-white/40 mt-6 max-w-xl lm-hero-sub text-base">Como coletamos, usamos e protegemos suas informações pessoais.</p>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-lm-cream text-black lm-reveal">
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-8">Política de Privacidade</h1>
-      <div class="prose prose-gray max-w-none space-y-6 text-gray-700">
-        <p>Sua privacidade é importante para nós. Esta política explica como coletamos, usamos e protegemos suas informações pessoais.</p>
-        <h2 class="text-xl font-bold text-black mt-8">1. Informações que coletamos</h2>
-        <p>Coletamos informações que você nos fornece diretamente, como nome, telefone, e-mail e mensagens enviadas pelo WhatsApp ou formulário de contato.</p>
-        <h2 class="text-xl font-bold text-black mt-8">2. Como usamos suas informações</h2>
-        <p>Utilizamos seus dados para agendar consultas, enviar lembretes de horários, responder dúvidas e melhorar nossos serviços.</p>
-        <h2 class="text-xl font-bold text-black mt-8">3. Compartilhamento</h2>
-        <p>Não compartilhamos suas informações pessoais com terceiros sem seu consentimento, exceto quando exigido por lei.</p>
-        <h2 class="text-xl font-bold text-black mt-8">4. Armazenamento</h2>
-        <p>Seus dados são armazenados com segurança e mantidos apenas pelo tempo necessário para a finalidade do atendimento.</p>
-        <h2 class="text-xl font-bold text-black mt-8">5. Seus direitos</h2>
-        <p>Você pode solicitar a qualquer momento a correção, exclusão ou portabilidade dos seus dados entrando em contato conosco.</p>
-        <h2 class="text-xl font-bold text-black mt-8">6. Contato</h2>
-        <p>Para dúvidas sobre esta política, entre em contato pelo WhatsApp (51) 99340-8269.</p>
-        <p class="text-sm text-gray-500 mt-12">Última atualização: junho de 2026.</p>
+      <div class="space-y-8">
+        <p class="text-gray-600 leading-relaxed">Sua privacidade é importante para nós. Esta política explica como coletamos, usamos e protegemos suas informações pessoais.</p>
+
+        {[
+          { title: '1. Informações que coletamos', content: 'Coletamos informações que você nos fornece diretamente, como nome, telefone, e-mail e mensagens enviadas pelo WhatsApp ou formulário de contato.' },
+          { title: '2. Como usamos suas informações', content: 'Utilizamos seus dados para agendar consultas, enviar lembretes de horários, responder dúvidas e melhorar nossos serviços.' },
+          { title: '3. Compartilhamento', content: 'Não compartilhamos suas informações pessoais com terceiros sem seu consentimento, exceto quando exigido por lei.' },
+          { title: '4. Armazenamento', content: 'Seus dados são armazenados com segurança e mantidos apenas pelo tempo necessário para a finalidade do atendimento.' },
+          { title: '5. Seus direitos', content: 'Você pode solicitar a qualquer momento a correção, exclusão ou portabilidade dos seus dados entrando em contato conosco.' },
+          { title: '6. Contato', content: 'Para dúvidas sobre esta política, entre em contato pelo WhatsApp (51) 99340-8269.' },
+        ].map(item => (
+          <div class="bg-white rounded-2xl p-8 lm-card border border-gray-100/80">
+            <h2 class="text-xl font-bold text-black mb-3">{item.title}</h2>
+            <p class="text-gray-600 leading-relaxed">{item.content}</p>
+          </div>
+        ))}
+
+        <p class="text-sm text-gray-500 pt-4">Última atualização: junho de 2026.</p>
       </div>
     </div>
   </section>

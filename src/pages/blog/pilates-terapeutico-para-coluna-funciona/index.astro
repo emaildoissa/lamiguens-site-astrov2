@@ -1,23 +1,92 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GoldDivider from '@/components/GoldDivider.astro'
+
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber mais sobre pilates terapêutico para coluna."
+
+const relatedPosts = [
+  { title: 'Fisioterapia ou RPG: Qual a Diferença', href: '/blog/fisioterapia-ou-rpg-qual-a-diferenca' },
+  { title: 'Quando Procurar Fisioterapia para Dor Lombar', href: '/blog/quando-procurar-fisioterapia-para-dor-lombar' },
+]
 ---
+
 <Layout title="Pilates Terapêutico para Coluna Funciona?" description="Descubra como o Pilates terapêutico pode ajudar no tratamento de dores na coluna. Benefícios, indicações e resultados.">
-  <section class="py-20 px-6 bg-white text-black"><div class="max-w-3xl mx-auto">
-    <p class="text-sm text-lm-pink font-bold uppercase tracking-wider mb-4">Blog</p>
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Pilates Terapêutico para Coluna Funciona?</h1>
-    <p class="text-gray-500 text-sm mb-8">Atualizado em junho de 2026</p>
-    <div class="prose prose-gray max-w-none space-y-5 text-gray-700">
-      <p>O Pilates terapêutico tem se mostrado uma ferramenta extremamente eficaz no tratamento de dores na coluna. Mas será que funciona para todos os casos?</p>
-      <h2 class="text-2xl font-bold text-black mt-8">Como o Pilates ajuda a coluna</h2>
-      <p>O método Pilates fortalece o core (conjunto de músculos que estabilizam a coluna), melhora a postura e aumenta a flexibilidade. Para pessoas com dores lombares crônicas, o fortalecimento da musculatura profunda do abdômen e da lombar é fundamental.</p>
-      <h2 class="text-2xl font-bold text-black mt-8">Benefícios comprovados</h2>
-      <ul><li>Redução da dor lombar crônica</li><li>Melhora da postura e alinhamento corporal</li><li>Aumento da força do core</li><li>Prevenção de novas lesões</li><li>Melhora da qualidade de vida</li></ul>
-      <h2 class="text-2xl font-bold text-black mt-8">Indicações</h2>
-      <p>O Pilates terapêutico é indicado para lombalgia crônica, hérnia de disco, escoliose, hipercifose e pós-operatório de coluna. Sempre com acompanhamento de um profissional qualificado e após avaliação fisioterapêutica.</p>
-      <p class="font-bold text-black mt-8">Quer experimentar? Agende uma aula!</p>
+  <section class="relative min-h-[55vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full">
+      <div class="flex items-center gap-3 mb-6 lm-hero-sub">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Blog</span>
+      </div>
+      <h1 class="text-[32px] md:text-[52px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Pilates Terapêutico para Coluna Funciona?</h1>
+      <p class="text-white/40 mt-4 lm-hero-sub text-sm">Atualizado em junho de 2026</p>
     </div>
-    <div class="mt-10"><a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all">Fale conosco pelo WhatsApp</a></div>
-  </div></section>
+  </section>
+
+  <section class="py-20 px-6 bg-white text-black lm-reveal">
+    <div class="max-w-3xl mx-auto">
+      <div class="prose prose-gray max-w-none space-y-5 text-gray-700 text-base leading-relaxed">
+        <p class="text-lg text-gray-600">O Pilates terapêutico tem se mostrado uma ferramenta extremamente eficaz no tratamento de dores na coluna. Mas será que funciona para todos os casos?</p>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-4">Como o Pilates ajuda a coluna</h2>
+        <p>O método Pilates fortalece o core (conjunto de músculos que estabilizam a coluna), melhora a postura e aumenta a flexibilidade. Para pessoas com dores lombares crônicas, o fortalecimento da musculatura profunda do abdômen e da lombar é fundamental.</p>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-6">Benefícios comprovados</h2>
+        <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+          {[
+            'Redução da dor lombar crônica',
+            'Melhora da postura e alinhamento corporal',
+            'Aumento da força do core',
+            'Prevenção de novas lesões',
+            'Melhora da qualidade de vida',
+            'Aumento da flexibilidade',
+          ].map(item => (
+            <div class="flex items-center gap-3 bg-lm-cream/50 rounded-xl px-5 py-4 border border-gray-100">
+              <svg class="w-4 h-4 shrink-0 text-lm-pink" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-sm text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-black mt-12 mb-4">Indicações</h2>
+        <p>O Pilates terapêutico é indicado para lombalgia crônica, hérnia de disco, escoliose, hipercifose e pós-operatório de coluna. Sempre com acompanhamento de um profissional qualificado e após avaliação fisioterapêutica.</p>
+
+        <p class="font-bold text-black mt-10 text-lg">Quer experimentar? Agende uma aula!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-lm-beige text-black lm-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Relacionados</span>
+        <span class="h-px flex-1 bg-lm-pink/10" />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {relatedPosts.map(p => (
+          <a href={p.href} class="group bg-white rounded-xl p-6 lm-card border border-gray-100/80">
+            <h3 class="text-base font-bold group-hover:text-lm-pink transition-colors">{p.title}</h3>
+            <div class="mt-3 flex items-center gap-1 text-lm-pink text-sm font-medium">
+              <span>Ler artigo</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-24 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[28px] md:text-[40px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Quer experimentar o Pilates Terapêutico?</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Agende uma aula experimental e sinta os benefícios.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Agendar aula
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
 </Layout>

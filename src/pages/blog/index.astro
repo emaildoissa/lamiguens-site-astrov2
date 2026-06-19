@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+
 const posts = [
   { title: 'Quanto Custa Fisioterapia em Porto Alegre?', href: '/blog/quanto-custa-fisioterapia-em-porto-alegre', date: 'Junho 2026', desc: 'Valores de sessões, convênios e pacotes na Zona Sul.' },
   { title: 'Quando Procurar Fisioterapia para Dor Lombar', href: '/blog/quando-procurar-fisioterapia-para-dor-lombar', date: 'Junho 2026', desc: 'Sinais de alerta e benefícios do tratamento precoce.' },
@@ -12,18 +13,57 @@ const posts = [
 ---
 
 <Layout title="Blog | Fisioterapia Zona Sul Porto Alegre" description="Blog sobre fisioterapia, pilates e saúde na Zona Sul de Porto Alegre. Dicas e informações para sua saúde.">
-  <section class="py-20 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-12">Blog</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {posts.map(post => (
-          <a href={post.href} class="group p-6 border border-gray-200 rounded-xl hover:border-lm-pink hover:shadow-lg transition-all">
-            <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">{post.date}</p>
-            <h2 class="text-xl font-bold mb-2 group-hover:text-lm-pink transition-colors">{post.title}</h2>
-            <p class="text-gray-600 text-sm">{post.desc}</p>
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-lm-pink/5 rounded-full blur-[120px] pointer-events-none" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 w-full text-center">
+      <div class="flex items-center gap-3 mb-6 justify-center lm-hero-sub">
+        <span class="h-px w-8 bg-lm-pink" />
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em]">Blog</span>
+        <span class="h-px w-8 bg-lm-pink" />
+      </div>
+      <h1 class="text-[40px] md:text-[64px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Blog</h1>
+      <p class="text-base md:text-lg text-white/40 mt-6 max-w-lg mx-auto lm-hero-sub">Dicas, informações e guias sobre fisioterapia, pilates e saúde na Zona Sul de Porto Alegre.</p>
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section class="py-24 px-6 bg-lm-cream text-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post, idx) => (
+          <a href={post.href} class="group relative bg-white rounded-2xl p-8 lm-card border border-gray-100/80 overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-lm-pink/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs text-gray-400 uppercase tracking-wider">{post.date}</span>
+                <span class="h-px flex-1 bg-gray-100" />
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-lm-pink transition-colors leading-snug">{post.title}</h2>
+              <p class="text-gray-500 text-sm leading-relaxed mb-6">{post.desc}</p>
+              <div class="flex items-center gap-1 text-lm-pink text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Ler artigo</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </div>
+            </div>
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-24 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[44px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Tem alguma dúvida?</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Fale conosco pelo WhatsApp e tire suas dúvidas sobre nossos tratamentos.</p>
+      <a href="https://wa.me/555193408269?text=Olá! Gostaria de tirar dúvidas sobre os tratamentos." target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/15">
+        Fale conosco
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
     </div>
   </section>
 </Layout>

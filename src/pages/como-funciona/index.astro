@@ -3,48 +3,137 @@ import Layout from '@/layouts/Layout.astro'
 const whatsapp = "https://wa.me/555193408269?text=Olá! Gostaria de saber como funciona o atendimento."
 
 const steps = [
-  { title: "1. Contato", desc: "Você nos chama pelo WhatsApp e conta um pouco sobre seu caso. Agendamos sua avaliação inicial." },
-  { title: "2. Avaliação", desc: "Na primeira sessão, fazemos uma avaliação completa: histórico, testes ortopédicos e análise biomecânica." },
-  { title: "3. Diagnóstico", desc: "Identificamos a causa do problema e traçamos um plano de tratamento personalizado para você." },
-  { title: "4. Tratamento", desc: "Sessões individuais com técnicas de terapia manual, exercícios terapêuticos e recursos específicos." },
-  { title: "5. Acompanhamento", desc: "Ajustamos o tratamento conforme sua evolução e preparamos você para a alta com segurança." },
-  { title: "6. Prevenção", desc: "Programa de exercícios domiciliares e orientações para evitar que o problema volte." },
+  { num: "01", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Contato", desc: "Você nos chama pelo WhatsApp e conta sobre seu caso. Agendamos sua avaliação inicial no melhor horário para você." },
+  { num: "02", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", title: "Avaliação", desc: "Na primeira sessão, fazemos uma avaliação completa: entrevista detalhada, testes ortopédicos e análise biomecânica do seu movimento." },
+  { num: "03", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Diagnóstico", desc: "Identificamos a causa raiz do seu problema com precisão e traçamos um plano de tratamento personalizado com metas claras." },
+  { num: "04", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", title: "Tratamento", desc: "Sessões individuais com técnicas de terapia manual, exercícios terapêuticos e recursos específicos para o seu quadro clínico." },
+  { num: "05", icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Acompanhamento", desc: "Ajustamos o tratamento conforme sua evolução. Reavaliamos periodicamente para garantir que você está no caminho certo." },
+  { num: "06", icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", title: "Prevenção", desc: "Programa de exercícios domiciliares e orientações ergonômicas para evitar recidivas e manter os resultados a longo prazo." },
 ]
 ---
 
-<Layout title="Como Funciona a Fisioterapia na Zona Sul de Porto Alegre" description="Saiba como funciona nosso atendimento de fisioterapia na Zona Sul de Porto Alegre. Da avaliação à alta, entenda cada etapa.">
-  <section class="py-20 px-6 bg-white text-black">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Como Funciona o Atendimento</h1>
-      <p class="text-lg text-gray-600 mb-10 max-w-2xl">Da avaliação à alta, entenda cada etapa do nosso tratamento fisioterapêutico na Zona Sul de Porto Alegre.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {steps.map(step => (
-          <div class="p-6 border border-gray-200 rounded-xl hover:border-lm-pink transition-colors">
-            <h2 class="text-xl font-bold mb-2">{step.title}</h2>
-            <p class="text-gray-600">{step.desc}</p>
+<Layout title="Como Funciona a Fisioterapia na Zona Sul de Porto Alegre" description="Saiba como funciona nosso atendimento de fisioterapia na Zona Sul de Porto Alegre. Da avaliação à alta, entenda cada etapa do processo.">
+  <!-- HERO -->
+  <section class="relative min-h-[70vh] flex items-center bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-lm-pink/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-lm-gold/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 w-full">
+      <div class="max-w-3xl">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em] mb-6 block lm-hero-sub">Seu caminho para a recuperação</span>
+        <h1 class="text-[44px] md:text-[72px] lg:text-[88px] font-serif font-bold leading-[0.95] tracking-tight lm-hero-title">Como<br />Funciona</h1>
+        <p class="text-lg md:text-xl text-white/40 mt-6 max-w-xl lm-hero-sub">Da avaliação à alta, cada etapa é pensada para sua recuperação completa. Sem pressa, sem atalhos.</p>
+        <div class="flex items-center gap-6 mt-10 lm-hero-cta">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-lm-pink text-white font-bold py-4 px-8 rounded-full text-base">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Agendar Avaliação
+          </a>
+          <span class="text-sm text-white/30">Primeira sessão gratuita</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="relative py-28 px-6 bg-lm-cream text-black overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-20">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em] mb-4 block">Jornada</span>
+        <h2 class="text-[32px] md:text-[48px] font-serif font-bold tracking-tight">As 6 etapas do<br /><span class="text-lm-pink">tratamento</span></h2>
+      </div>
+
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-[29px] md:left-1/2 top-0 bottom-0 w-px bg-lm-pink/10 md:-translate-x-px" />
+
+        {steps.map((step, idx) => (
+          <div class="relative flex items-start gap-8 md:gap-0 mb-20 last:mb-0 md:even:flex-row-reverse">
+            <!-- Timeline dot -->
+            <div class="absolute left-[21px] md:left-1/2 w-[18px] h-[18px] rounded-full bg-lm-cream border-2 border-lm-pink md:-translate-x-[9px] z-10 mt-1" />
+
+            <!-- Content -->
+            <div class="ml-16 md:ml-0 md:w-[calc(50%-3rem)] md:odd:pr-16 md:even:pl-16">
+              <div class="bg-white rounded-2xl p-8 lm-card border border-gray-100/80">
+                <div class="flex items-start gap-5">
+                  <div class="hidden md:flex w-14 h-14 shrink-0 rounded-xl bg-lm-pink/5 items-center justify-center">
+                    <svg class="w-6 h-6 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={step.icon}/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[40px] md:text-[56px] font-serif font-bold text-lm-pink/10 leading-none block mb-2">{step.num}</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3">{step.title}</h3>
+                    <p class="text-gray-500 text-sm md:text-base leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-      <div class="text-center mt-12">
-        <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Agende sua avaliação</a>
+    </div>
+  </section>
+
+  <!-- PRICING STRIP -->
+  <section class="relative py-20 px-6 bg-lm-charcoal text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div class="text-center md:text-left">
+          <span class="text-[64px] md:text-[96px] font-serif font-bold text-lm-pink leading-none block">Grátis</span>
+          <span class="text-white/30 text-sm uppercase tracking-widest mt-2 block">Primeira sessão</span>
+        </div>
+        <div class="h-px w-16 md:h-16 md:w-px bg-white/10" />
+        <div>
+          <h3 class="text-2xl md:text-3xl font-serif font-bold mb-3">Sua primeira avaliação é por nossa conta</h3>
+          <p class="text-white/40 text-sm md:text-base max-w-lg">Queremos conhecer você e seu caso antes de qualquer compromisso. Se não houver conexão, não há problema.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 px-6 bg-lm-beige text-black">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">O que está incluído na avaliação inicial</h2>
+  <!-- WHAT'S INCLUDED -->
+  <section class="py-24 px-6 bg-lm-beige text-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-xs text-lm-pink font-bold uppercase tracking-[0.25em] mb-4 block">Avaliação inicial</span>
+        <h2 class="text-[32px] md:text-[48px] font-serif font-bold tracking-tight">O que está incluído</h2>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Entrevista detalhada</h3><p class="text-gray-600 text-sm">Histórico completo da sua condição, estilo de vida e objetivos.</p></div>
-        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Testes específicos</h3><p class="text-gray-600 text-sm">Testes ortopédicos e neurológicos para diagnóstico preciso.</p></div>
-        <div class="p-6 bg-white rounded-xl"><h3 class="font-bold mb-2">Plano personalizado</h3><p class="text-gray-600 text-sm">Plano de tratamento com metas claras e prazos estimados.</p></div>
+        <div class="bg-white rounded-2xl p-10 lm-card border border-gray-100/80 text-center">
+          <div class="w-14 h-14 rounded-full bg-lm-pink/5 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">Entrevista detalhada</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Histórico completo da sua condição, análise do seu estilo de vida e entendimento dos seus objetivos.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-10 lm-card border border-gray-100/80 text-center">
+          <div class="w-14 h-14 rounded-full bg-lm-pink/5 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">Testes específicos</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Testes ortopédicos, neurológicos e análise biomecânica para um diagnóstico preciso da sua condição.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-10 lm-card border border-gray-100/80 text-center">
+          <div class="w-14 h-14 rounded-full bg-lm-pink/5 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-lm-pink" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">Plano personalizado</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Plano de tratamento com metas claras, prazos estimados e um caminho definido para sua recuperação.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 px-6 text-center bg-black text-white">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6">Pronto para começar?</h2>
-    <p class="text-gray-400 mb-8 max-w-lg mx-auto">Agende sua avaliação e descubra como podemos ajudar você.</p>
-    <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="inline-block bg-lm-pink text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all text-base uppercase tracking-wider">Fale conosco pelo WhatsApp</a>
+  <!-- CTA -->
+  <section class="relative py-28 px-6 bg-lm-pink text-white overflow-hidden lm-reveal">
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="text-[32px] md:text-[52px] font-serif font-bold leading-[1.1] mb-6 tracking-tight">Pronto para dar o<br />primeiro passo?</h2>
+      <p class="text-base md:text-lg text-white/70 mb-10 max-w-md mx-auto">Sua primeira sessão é gratuita. Sem compromisso.</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="lm-btn inline-flex items-center gap-3 bg-white text-lm-pink px-8 py-4 rounded-full font-bold text-base hover:shadow-xl hover:shadow-black/20">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Agendar Avaliação
+      </a>
+    </div>
   </section>
 </Layout>
