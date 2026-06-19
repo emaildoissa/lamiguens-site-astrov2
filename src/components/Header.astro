@@ -25,21 +25,21 @@ const services = [
       </div>
       <nav class="hidden md:block">
         <ul class="flex items-center gap-1 text-sm font-medium tracking-wide">
-          <li><a href="/" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Home</a></li>
-          <li><a href="/como-funciona" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Como Funciona</a></li>
+          <li><a href="/" class="lm-nav-link px-3 py-3 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Home</a></li>
+          <li><a href="/como-funciona" class="lm-nav-link px-3 py-3 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Como Funciona</a></li>
           <li class="relative group">
-            <button id="desktop-services-btn" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
+            <button id="desktop-services-btn" class="lm-nav-link px-3 py-3 text-lm-dark hover:text-lm-pink transition-colors rounded-lg flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
               Serviços<svg class="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block group-focus-within:block z-50" role="region" aria-label="Serviços">
               <div class="lm-glass rounded-xl border border-gray-100/50 shadow-xl shadow-black/5 py-2 w-56">
-                {services.map((s) => (<a href={s.href} class="block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 transition-all">{s.label}</a>))}
+                {services.map((s) => (<a href={s.href} class="block px-4 py-3 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 transition-all">{s.label}</a>))}
               </div>
             </div>
           </li>
-          <li><a href="/blog" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Blog</a></li>
-          <li><a href="/bairros" class="lm-nav-link px-3 py-2 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Regiões</a></li>
-          <li><a href="/contato" class="ml-2 bg-lm-pink text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-opacity-90 transition-all hover:shadow-lg hover:shadow-lm-pink/25">Contato</a></li>
+          <li><a href="/blog" class="lm-nav-link px-3 py-3 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Blog</a></li>
+          <li><a href="/bairros" class="lm-nav-link px-3 py-3 text-lm-dark hover:text-lm-pink transition-colors rounded-lg">Regiões</a></li>
+          <li><a href="/contato" class="ml-2 bg-lm-pink text-white px-5 py-3 rounded-full font-bold text-sm hover:bg-opacity-90 transition-all hover:shadow-lg hover:shadow-lm-pink/25">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -47,15 +47,15 @@ const services = [
   <nav id="mobile-menu" class="hidden md:hidden container mx-auto px-4 sm:px-6 lg:px-8 mt-2">
     <div class="lm-glass rounded-2xl border border-white/20 shadow-lg py-4 px-6">
       <ul class="flex flex-col gap-1">
-        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/">Home</a></li>
-        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/como-funciona">Como Funciona</a></li>
-        <li><button id="mobile-services-btn" class="flex justify-between w-full px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all items-center cursor-pointer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">Serviços<svg id="services-chevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button></li>
+        <li><a class="mobile-link block px-4 py-4 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/">Home</a></li>
+        <li><a class="mobile-link block px-4 py-4 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/como-funciona">Como Funciona</a></li>
+        <li><button id="mobile-services-btn" class="flex justify-between w-full px-4 py-4 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all items-center cursor-pointer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-submenu">Serviços<svg id="services-chevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button></li>
         <ul id="mobile-services-submenu" class="hidden ml-4 flex flex-col gap-1 border-l-2 border-lm-pink/20 pl-4">
-          {services.map((s) => (<li><a href={s.href} class="mobile-link block px-4 py-2 text-sm text-gray-600 hover:text-lm-pink rounded-lg transition-all">{s.label}</a></li>))}
+          {services.map((s) => (<li><a href={s.href} class="mobile-link block px-4 py-3 text-sm text-gray-600 hover:text-lm-pink rounded-lg transition-all">{s.label}</a></li>))}
         </ul>
-        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/blog">Blog</a></li>
-        <li><a class="mobile-link block px-4 py-2.5 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/bairros">Regiões</a></li>
-        <li><a class="mobile-link block px-4 py-2.5 text-sm text-lm-pink font-bold hover:bg-lm-pink/5 rounded-lg transition-all" href="/contato">Contato</a></li>
+        <li><a class="mobile-link block px-4 py-4 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/blog">Blog</a></li>
+        <li><a class="mobile-link block px-4 py-4 text-sm text-gray-700 hover:text-lm-pink hover:bg-lm-beige/50 rounded-lg transition-all" href="/bairros">Regiões</a></li>
+        <li><a class="mobile-link block px-4 py-4 text-sm text-lm-pink font-bold hover:bg-lm-pink/5 rounded-lg transition-all" href="/contato">Contato</a></li>
       </ul>
     </div>
   </nav>

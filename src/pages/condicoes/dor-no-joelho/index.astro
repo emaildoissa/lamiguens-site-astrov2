@@ -204,7 +204,7 @@ const faqs = [
       <div class="space-y-3">
         {faqs.map((faq, idx) => (
           <details class="group rounded-xl border border-gray-100 overflow-hidden transition-all open:border-lm-pink/20 open:shadow-sm">
-            <summary class="flex justify-between items-center cursor-pointer px-6 py-5 font-medium text-base text-gray-700 hover:text-lm-pink transition-colors">
+            <summary class="flex justify-between items-center cursor-pointer px-6 py-6 font-medium text-base text-gray-700 hover:text-lm-pink transition-colors">
               <span class="flex items-center gap-4">
                 <span class="w-6 h-6 rounded-full bg-lm-pink/5 flex items-center justify-center text-xs font-bold text-lm-pink shrink-0">{String(idx + 1).padStart(2, "0")}</span>
                 {faq.q}
